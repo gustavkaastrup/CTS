@@ -9,7 +9,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     [Header("------ Audio Clip ------")]
-    public AudioClip testClip;
+    [Header("Bass minigame")]
+    public AudioClip BassLowE;
+    public AudioClip BassLowA;
+    public AudioClip BassMidE;
+    public AudioClip BassHighE;
 
     public static AudioManager instance;
 
