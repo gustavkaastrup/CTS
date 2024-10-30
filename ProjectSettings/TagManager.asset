@@ -7,6 +7,7 @@ TagManager:
   - Note
   - Audio
   - Drum
+  - Rotator
   layers:
   - Default
   - TransparentFX
