@@ -5,17 +5,23 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PumpScript : MonoBehaviour
+public class CircleScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public float pumpSpeed = 10.0f;
     public float sawtoothWave;
-    public ConductorScript conductor;
+    private ConductorScript conductor;
     private Vector3 originalScale;
+    public static CircleScript instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         originalScale = transform.localScale;
-
+        conductor = ConductorScript.instance;
     }
 
     // Update is called once per frame

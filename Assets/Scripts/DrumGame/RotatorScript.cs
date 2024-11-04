@@ -4,10 +4,19 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class RotateScript : MonoBehaviour
+public class RotatorScript : MonoBehaviour
 {
-    public ConductorScript conductor;
+    private ConductorScript conductor;
+    public static RotatorScript instance;
 
+    void Awake()
+    {
+        instance = this;
+    }
+    void Start()
+    {
+        conductor = ConductorScript.instance;
+    }
     // Update is called once per frame
     void Update()
     {

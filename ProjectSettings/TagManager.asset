@@ -8,6 +8,10 @@ TagManager:
   - Audio
   - Drum
   - Rotator
+  - Score
+  - Name
+  - RestartButton
+  - Circle
   layers:
   - Default
   - TransparentFX

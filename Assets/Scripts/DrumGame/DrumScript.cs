@@ -10,6 +10,7 @@ public class DrumScript : MonoBehaviour
     public KeyCode key;
     public AudioSource sound;
     public Transform center;
+    private DrumGameManagerScript drumManager = DrumGameManagerScript.instance;
     private bool active = false;
     bool isPressed = false;
 
@@ -71,11 +72,13 @@ public class DrumScript : MonoBehaviour
         if (isPressed)
         {
             isPressed = false;
-            Debug.Log(gameObject.name + "Drum hit!");
+
+            drumManager.AddScore(1);
         }
         else
         {
-            Debug.Log(gameObject.name + "Drum missed!");
+
+            drumManager.AddScore(-1);
         }
     }
 }

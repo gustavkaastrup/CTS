@@ -13,7 +13,7 @@ public class ConductorScript : MonoBehaviour
     public float dspSongTime;
     public float firstBeatOffset;
 
-    public GameObject[] spawners;
+    private DrumGameManagerScript drumManager;
 
     public float beatsPerLoop;
 
@@ -23,11 +23,11 @@ public class ConductorScript : MonoBehaviour
     public bool songPlaying = false;
 
     public float loopPositionInAnalog;
+    private bool gameOver = false;
     public AudioSource musicSource;
 
     public static ConductorScript instance;
 
-    private bool spawned = false;
 
     void Awake()
     {
@@ -38,6 +38,7 @@ public class ConductorScript : MonoBehaviour
     {
         musicSource = GetComponent<AudioSource>();
         secPerBeat = 60f / bpm;
+        drumManager = DrumGameManagerScript.instance;
     }
 
     // Update is called once per frame
@@ -47,14 +48,6 @@ public class ConductorScript : MonoBehaviour
         {
             songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
             songPosInBeats = songPosition / secPerBeat;
-            if (!spawned && songPosInBeats > 3)
-            {
-                foreach (GameObject spawner in spawners)
-                {
-                    spawner.GetComponent<DrumSpawnerScript>().StartSpawning();
-                }
-                spawned = true;
-            }
             if (songPosInBeats >= (completedLoops + 1) * beatsPerLoop)
             {
                 completedLoops++;
@@ -62,9 +55,13 @@ public class ConductorScript : MonoBehaviour
             loopPositionInBeats = songPosInBeats - completedLoops * beatsPerLoop;
             loopPositionInAnalog = loopPositionInBeats / beatsPerLoop;
         }
-        else
+        if (!musicSource.isPlaying && songPosInBeats > 0)
         {
-            songPlaying = false;
+            if (!gameOver)
+            {
+                drumManager.GameOver();
+                gameOver = true;
+            }
         }
     }
 
@@ -72,6 +69,5 @@ public class ConductorScript : MonoBehaviour
     {
         musicSource.Play();
         dspSongTime = (float)AudioSettings.dspTime;
-        songPlaying = true;
     }
 }

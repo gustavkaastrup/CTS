@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DrumSpawnerScript : MonoBehaviour
 {
@@ -8,31 +11,20 @@ public class DrumSpawnerScript : MonoBehaviour
 
     [Header("Setup")]
     public bool[] DrumPattern;
+    public int subdivisions;
     public GameObject Drum;
     public float radius;
-
-    public int subdivisions = 8;
-
     public bool isSpawning = false;
+    private List<GameObject> spawnedDrums = new List<GameObject>();
 
 
-    // Start is called before the first frame update
-    void Update()
-    {
-        if (isSpawning)
-        {
-            SpawnAroundPoint(radius, Drum, DrumPattern);
-            isSpawning = false;
-        }
-    }
-
-    void SpawnAroundPoint(float radius, GameObject Drum, bool[] pattern)
+    public void SpawnAroundPoint(float radius)
     {
         float angleStep = 360f / subdivisions;
 
-        for (int i = 0; i < pattern.Length; i++)
+        for (int i = 0; i < DrumPattern.Length; i++)
         {
-            if (pattern[i])
+            if (DrumPattern[i])
             {
                 float angle = i * angleStep;
                 Vector3 position = new Vector3(
@@ -41,12 +33,18 @@ public class DrumSpawnerScript : MonoBehaviour
                     0
                 );
 
-                Instantiate(Drum, position, Quaternion.identity);
+                GameObject spawnedDrum = Instantiate(Drum, position, Quaternion.identity);
+                spawnedDrums.Add(spawnedDrum);
             }
         }
     }
-    public void StartSpawning()
+
+    public void DeleteDrums()
     {
-        isSpawning = true;
+        foreach (GameObject drum in spawnedDrums)
+        {
+            Destroy(drum);
+        }
+        spawnedDrums.Clear();
     }
 }
