@@ -3,162 +3,172 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.InputSystem;
+using System.Linq;
+
+
 
 public class DrumGameManagerScript : MonoBehaviour
 {
+    enum SongParts
+    {
+        Intro,
+        Verse,
+        Chorus,
+        Outro
+    }
+    public static DrumGameManagerScript instance;
     public GameObject KickDrum;
     public GameObject SnareDrum;
     public GameObject HiHat;
-    public GameObject Ghost;
-    public GameObject restartButton;
-    public GameObject circle;
-    public GameObject rotator;
+    public GameObject KickGhost;
+    public GameObject SnareGhost;
+    public GameObject HiHatGhost;
+    public GameObject RestartButton;
+    public GameObject Circle;
+    public GameObject Rotator;
+    public TMP_Text CountdownText;
+    public string Difficulty = "Easy";
+    public bool[][] EasyKickPatterns;
+    public bool[][] EasySnarePatterns;
+    public bool[][] EasyHiHatPatterns;
+    public bool[][] MediumSnarePatterns;
+    public bool[][] MediumKickPatterns;
+    public bool[][] MediumHiHatPatterns;
+    public bool[][] HardKickPatterns;
+    public bool[][] HardSnarePatterns;
+    public bool[][] HardHiHatPatterns;
+    public int[] SongStructure;
+    public int[] SongChanges;
+    public bool Playing = false;
+    public int Score = 0;
 
-    public GameObject rotatorSprite;
-
-    private int counter = 0;
     private TMP_Text scoreText;
     private TMP_Text nameText;
-
-
-    private string playerName;
-    private string HighscoreName;
-    public string Difficulty = "Easy";
-
-    private int Highscore;
-    public int Score = 0;
-    public static DrumGameManagerScript instance;
     private ConductorScript conductor;
-    private int KickRadius = 3;
-    private int SnareRadius = 5;
-    private int HiHatRadius = 7;
-    public bool[][] KickPatterns;
-    public bool[][] SnarePatterns;
-    public bool[][] HiHatPatterns;
-
-    private bool verse = false;
-    private bool ghostSpawned = false;
-    private bool chorus = false;
-    public bool playing = false;
-
-
+    private string playerName;
+    private string highscoreName;
+    private int highscore;
+    private int kickRadius = 3;
+    private int snareRadius = 5;
+    private int hiHatRadius = 7;
+    public int currentPart = 0;
+    private bool[][] KickPatterns;
+    private bool[][] SnarePatterns;
+    private bool[][] HiHatPatterns;
+    private bool[] SongFunction;
+    private bool[] GhostFunction;
+    private int currentBeat;
     private void Awake()
     {
         instance = this;
     }
     void Start()
     {
+        SongFunction = new bool[SongChanges.Max() + 1];
+        GhostFunction = new bool[SongFunction.Length];
+        for (int i = 0; i < SongChanges.Length; i++)
+        {
+            SongFunction[SongChanges[i]] = true;
+            if (i > 0)
+            {
+                GhostFunction[SongChanges[i] - 1] = true;
+            }
+        }
+        Playing = false;
         conductor = ConductorScript.instance;
         scoreText = GameObject.FindWithTag("Score").GetComponent<TMP_Text>();
         nameText = GameObject.FindWithTag("Name").GetComponent<TMP_Text>();
-        Highscore = PlayerPrefs.GetInt("Highscore");
-        HighscoreName = PlayerPrefs.GetString("HighscoreName");
-        SetDifficulty(Difficulty);
+        highscore = PlayerPrefs.GetInt("Highscore");
+        highscoreName = PlayerPrefs.GetString("HighscoreName");
+        Difficulty = "Easy";
+        CountdownText.text = "";
+        if (KickGhost == null) Debug.LogError("KickGhost is not assigned.");
+        if (SnareGhost == null) Debug.LogError("SnareGhost is not assigned.");
+        if (HiHatGhost == null) Debug.LogError("HiHatGhost is not assigned.");
     }
 
     void Update()
     {
-        if (playing)
+        if (Playing)
         {
-            if (ghostSpawned == false && conductor.songPosInBeats < 4)
+            currentBeat = conductor.completedLoops;
+            if (GhostFunction[currentBeat])
             {
                 SpawnGhosts();
-                ghostSpawned = true;
-                Debug.Log("ghosts spawned");
+                GhostFunction[currentBeat] = false;
             }
-            if (conductor.songPosInBeats > 4 && !verse)
+            if (currentBeat < SongFunction.Length && SongFunction[currentBeat])
             {
-                Spawn();
-                verse = true;
                 DespawnGhosts();
-                ghostSpawned = false;
-            }
-            if (conductor.songPosInBeats > 48 && ghostSpawned == false)
-            {
-                counter++;
-                SpawnGhosts();
-                ghostSpawned = true;
-            }
-            if (conductor.songPosInBeats > 52 && !chorus)
-            {
-                if (Difficulty == "Hard")
-                {
-                    rotatorSprite.GetComponent<SpriteRenderer>().enabled = false;
-                }
+                Debug.Log("despawning!");
                 Despawn();
-                chorus = true;
-                DespawnGhosts();
+                Debug.Log("spawning!");
                 Spawn();
+                Debug.Log("changing part!");
+                currentPart++;
+                SongFunction[currentBeat] = false;
             }
-
-            scoreText.text = "Highscore: " + HighscoreName + " " + Highscore + "\nScore: " + Score;
+            scoreText.text = "Highscore: " + highscoreName + " " + highscore + "\nScore: " + Score;
         }
     }
 
     public void SetDifficulty(string difficulty)
     {
         Difficulty = difficulty;
+        var StartButton = GameObject.FindWithTag("StartButton");
+        // Initialize the arrays with the size of the SongParts enum
+        int songPartsCount = System.Enum.GetValues(typeof(SongParts)).Length;
+        KickPatterns = new bool[songPartsCount][];
+        SnarePatterns = new bool[songPartsCount][];
+        HiHatPatterns = new bool[songPartsCount][];
+
         switch (Difficulty)
         {
             case "Easy":
-                KickPatterns = new bool[][] {
-                    new bool[] { true, false, false, false, true, false, false, false },
-                    new bool[] { true, false, true, false, true, false, true, false } };
-                SnarePatterns = new bool[][] {
-                    new bool[] { false, false, false, false, false, false, false, false },
-                    new bool[] { false, false, true, false, false, false, true, false } };
-                HiHatPatterns = new bool[][] {
-                    new bool[] { false, false, false, false, false, false, false, false },
-                    new bool[] { false, false, false, false, false, false, false,false,} };
+                KickPatterns = EasyKickPatterns;
+                SnarePatterns = EasySnarePatterns;
+                HiHatPatterns = EasyHiHatPatterns;
+                StartButton.GetComponent<Button>().onClick.Invoke();
                 break;
+
             case "Medium":
-                KickPatterns = new bool[][] {
-                    new bool[] { true, false, true, false, true, false, true, false },
-                    new bool[] { true, false, true, false, true, false, true, false }, };
-                SnarePatterns = new bool[][] {
-                    new bool[] { false, false, false, false, false, false, false, false },
-                    new bool[] { false, false, true, false, false, false, true, false } };
-                HiHatPatterns = new bool[][] {
-                    new bool[] { false, false, false, false, false, false, false, false },
-                    new bool[] { true, false, true, false, true, false, true, false } };
+                KickPatterns = MediumKickPatterns;
+                SnarePatterns = MediumSnarePatterns;
+                HiHatPatterns = MediumHiHatPatterns;
+                StartButton.GetComponent<Button>().onClick.Invoke();
                 break;
+
             case "Hard":
-                KickPatterns = new bool[][] {
-                    new bool[] { true, false, false, false, false, true, false, false },
-                    new bool[] { true, false, false, false, false, true, false, false } };
-                SnarePatterns = new bool[][] {
-                    new bool[] { false, false, false, false, false, false, false, false },
-                    new bool[] { false, false, true, false, false, false, true, false } };
-                HiHatPatterns = new bool[][] {
-                    new bool[] { true, false, true, false, true, false, true, false },
-                    new bool[] { true, false, true, false, true, false, true, false } };
+                KickPatterns = HardKickPatterns;
+                SnarePatterns = HardSnarePatterns;
+                HiHatPatterns = HardHiHatPatterns;
+                StartButton.GetComponent<Button>().onClick.Invoke();
                 break;
         }
     }
 
     public void Spawn()
     {
-        Debug.Log(KickPatterns[counter].ToString());
-        KickDrum.GetComponent<DrumSpawnerScript>().DrumPattern = KickPatterns[counter];
-        SnareDrum.GetComponent<DrumSpawnerScript>().DrumPattern = SnarePatterns[counter];
-        HiHat.GetComponent<DrumSpawnerScript>().DrumPattern = HiHatPatterns[counter];
-        KickDrum.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(KickRadius);
-        SnareDrum.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(SnareRadius);
-        HiHat.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(HiHatRadius);
-    }
-    public void SpawnGhosts()
-    {
-        Ghost.GetComponent<DrumSpawnerScript>().DrumPattern = KickPatterns[counter];
-        Ghost.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(KickRadius);
-        Ghost.GetComponent<DrumSpawnerScript>().DrumPattern = SnarePatterns[counter];
-        Ghost.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(SnareRadius);
-        Ghost.GetComponent<DrumSpawnerScript>().DrumPattern = HiHatPatterns[counter];
-        Ghost.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(HiHatRadius);
+        DespawnGhosts();
+        KickDrum.GetComponent<DrumSpawnerScript>().DrumPattern = KickPatterns[SongStructure[currentPart]];
+        SnareDrum.GetComponent<DrumSpawnerScript>().DrumPattern = SnarePatterns[SongStructure[currentPart]];
+        HiHat.GetComponent<DrumSpawnerScript>().DrumPattern = HiHatPatterns[SongStructure[currentPart]];
+        KickDrum.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(kickRadius);
+        SnareDrum.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(snareRadius);
+        HiHat.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(hiHatRadius);
     }
 
-    public void DespawnGhosts()
+    public void SpawnGhosts()
     {
-        Ghost.GetComponent<DrumSpawnerScript>().DeleteDrums();
+        KickGhost.GetComponent<DrumSpawnerScript>().DrumPattern = KickPatterns[SongStructure[currentPart]];
+        SnareGhost.GetComponent<DrumSpawnerScript>().DrumPattern = SnarePatterns[SongStructure[currentPart]];
+        HiHatGhost.GetComponent<DrumSpawnerScript>().DrumPattern = HiHatPatterns[SongStructure[currentPart]];
+        KickGhost.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(kickRadius);
+        SnareGhost.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(snareRadius);
+        HiHatGhost.GetComponent<DrumSpawnerScript>().SpawnAroundPoint(hiHatRadius);
+
     }
 
     public void Despawn()
@@ -167,6 +177,13 @@ public class DrumGameManagerScript : MonoBehaviour
         SnareDrum.GetComponent<DrumSpawnerScript>().DeleteDrums();
         HiHat.GetComponent<DrumSpawnerScript>().DeleteDrums();
     }
+    public void DespawnGhosts()
+    {
+        KickGhost.GetComponent<DrumSpawnerScript>().DeleteDrums();
+        SnareGhost.GetComponent<DrumSpawnerScript>().DeleteDrums();
+        HiHatGhost.GetComponent<DrumSpawnerScript>().DeleteDrums();
+
+    }
 
     public void AddScore(int score)
     {
@@ -174,36 +191,58 @@ public class DrumGameManagerScript : MonoBehaviour
     }
     public void GameOver()
     {
-        playing = false;
+        Playing = false;
         Debug.Log("Game Over");
         if (KickDrum == null) Debug.LogError("KickDrum is null");
         if (SnareDrum == null) Debug.LogError("SnareDrum is null");
         if (HiHat == null) Debug.LogError("HiHat is null");
-        if (circle == null) Debug.LogError("circle is null");
-        if (rotator == null) Debug.LogError("rotate is null");
+        if (Circle == null) Debug.LogError("circle is null");
+        if (Rotator == null) Debug.LogError("rotate is null");
         if (scoreText == null) Debug.LogError("scoreText is null");
-        if (restartButton == null) Debug.LogError("restartButton is null");
+        if (RestartButton == null) Debug.LogError("restartButton is null");
         KickDrum.GetComponent<DrumSpawnerScript>().DeleteDrums();
         SnareDrum.GetComponent<DrumSpawnerScript>().DeleteDrums();
         HiHat.GetComponent<DrumSpawnerScript>().DeleteDrums();
-        if (Score > Highscore)
+        if (Score > highscore)
         {
-            Highscore = Score;
+            highscore = Score;
             PlayerPrefs.SetString("HighscoreName", playerName);
-            PlayerPrefs.SetInt("Highscore", Highscore);
+            PlayerPrefs.SetInt("Highscore", highscore);
         }
         scoreText.rectTransform.anchoredPosition = new Vector2(0, 0);
         scoreText.text = "GAME OVER\nFinal Score: " + Score;
         Debug.Log("text should change");
-        circle.gameObject.SetActive(false);
-        rotator.gameObject.SetActive(false);
-        restartButton.SetActive(true);
+        Circle.gameObject.SetActive(false);
+        Rotator.gameObject.SetActive(false);
+        RestartButton.SetActive(true);
     }
 
     public void StartGame()
     {
+        StartCoroutine(CountdownAndStartGame());
+    }
+
+    private IEnumerator CountdownAndStartGame()
+    {
+        SpawnGhosts();
+        int countdown = 3; // Countdown from 3
+        float bpm = conductor.bpm; // Get the BPM from the conductor
+        float interval = 60f / bpm; // Calculate the interval based on BPM
+
+        while (countdown > 0)
+        {
+            CountdownText.text = countdown.ToString();
+            yield return new WaitForSeconds(interval);
+            countdown--;
+        }
+
+        CountdownText.text = "Go!";
+        yield return new WaitForSeconds(interval);
+
+        CountdownText.text = "";
+        DespawnGhosts();
         conductor.StartSong();
-        playing = true;
+        Playing = true;
         playerName = nameText.text;
     }
 
@@ -211,7 +250,7 @@ public class DrumGameManagerScript : MonoBehaviour
     {
         PlayerPrefs.SetInt("Highscore", 0);
         PlayerPrefs.SetString("HighscoreName", "");
-        Highscore = 0;
+        highscore = 0;
     }
     public void RestartGame()
     {

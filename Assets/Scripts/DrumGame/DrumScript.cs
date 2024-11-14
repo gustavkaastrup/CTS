@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DrumScript : MonoBehaviour
@@ -11,15 +12,23 @@ public class DrumScript : MonoBehaviour
     public AudioSource sound;
     public Transform center;
     private DrumGameManagerScript drumManager = DrumGameManagerScript.instance;
+
+    private TMP_Text scoreText;
     private bool active = false;
     bool isPressed = false;
 
+    public GameObject col;
+
+    public float distance;
+    public float scoreMultiplier;
+    // Add score based on the distance
+    public int scoreToAdd;
     void Start()
     {
         originalScale = transform.localScale;
         drumSprite = GetComponent<SpriteRenderer>();
-        sound = GetComponent<AudioSource>();
         center = transform;
+        scoreText = GameObject.FindWithTag("Countdown").GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -27,11 +36,28 @@ public class DrumScript : MonoBehaviour
     {
         if (active)
         {
-            if (Input.GetKeyDown(key))
+            if (Input.GetKeyDown(key) && !isPressed)
             {
                 StartCoroutine(ScaleSprite());
-                sound.Play();
                 isPressed = true;
+
+                Collider2D collider = col.GetComponent<Collider2D>();
+                Vector3 closestPoint = collider.ClosestPoint(center.position);
+                distance = Vector3.Distance(center.position, closestPoint);
+                if (distance < 0.05)
+                {
+                    scoreToAdd = 10;
+                }
+                else if (distance < 0.5)
+                {
+                    scoreToAdd = 5;
+                }
+                else
+                {
+                    scoreToAdd = 1;
+                }
+                drumManager.AddScore(scoreToAdd);
+                StartCoroutine(PointAnimation());
             }
         }
 
@@ -60,6 +86,7 @@ public class DrumScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Rotator")
         {
+            col = other.gameObject;
             active = true;
         }
     }
@@ -68,18 +95,18 @@ public class DrumScript : MonoBehaviour
         if (other.gameObject.tag == "Rotator")
         {
             active = false;
-        }
-        if (isPressed)
-        {
             isPressed = false;
-
-            drumManager.AddScore(1);
+            col = null;
         }
-        else
-        {
+    }
 
-            drumManager.AddScore(-1);
-        }
+    public IEnumerator PointAnimation()
+    {
+        scoreText.text = "+" + scoreToAdd;
+        scoreText.color = Color.green;
+        scoreText.rectTransform.anchoredPosition = new Vector2(0, 0);
+        yield return new WaitForSeconds(1);
+        scoreText.text = "";
     }
 }
 

@@ -12,6 +12,8 @@ TagManager:
   - Name
   - RestartButton
   - Circle
+  - StartButton
+  - Countdown
   layers:
   - Default
   - TransparentFX
