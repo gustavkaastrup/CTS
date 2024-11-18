@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip BassLowA;
     public AudioClip BassMidE;
     public AudioClip BassHighE;
+    public AudioClip BarAmbience;
 
     public static AudioManager instance;
 
@@ -50,6 +51,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySoundEffect(AudioClip soundClip)
     {
+        SFXSource.PlayOneShot(soundClip);
+    }
+
+    public void PlaySoundEffectStopPrevious(AudioClip soundClip)
+    {
+        SFXSource.Stop();
         SFXSource.PlayOneShot(soundClip);
     }
 
