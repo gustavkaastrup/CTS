@@ -16,6 +16,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip BassHighE;
     public AudioClip BarAmbience;
 
+    [Header("Bass minigame")]
+    public AudioClip VocalsC;
+    public AudioClip VocalsE;
+    public AudioClip VocalsG;
+
     public static AudioManager instance;
 
     private void Awake()
@@ -60,4 +65,12 @@ public class AudioManager : MonoBehaviour
         SFXSource.PlayOneShot(soundClip);
     }
 
+    public IEnumerator PlayAudioInSequence(List<AudioClip> audioClipList)
+    {
+        foreach (AudioClip audioClip in audioClipList)
+        {
+            SFXSource.PlayOneShot(audioClip);
+            yield return new WaitForSeconds(audioClip.length);
+        }
+    }
 }
