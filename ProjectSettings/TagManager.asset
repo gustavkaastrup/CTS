@@ -8,6 +8,7 @@ TagManager:
   - Audio
   - MushroomHouse
   - fox
+  - Bar
   layers:
   - Default
   - TransparentFX
