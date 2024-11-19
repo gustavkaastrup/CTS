@@ -14,6 +14,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip BassLowA;
     public AudioClip BassMidE;
     public AudioClip BassHighE;
+    public AudioClip BarAmbience;
+
+    [Header("Bass minigame")]
+    public AudioClip VocalsC;
+    public AudioClip VocalsE;
+    public AudioClip VocalsG;
 
     public static AudioManager instance;
 
@@ -53,4 +59,18 @@ public class AudioManager : MonoBehaviour
         SFXSource.PlayOneShot(soundClip);
     }
 
+    public void PlaySoundEffectStopPrevious(AudioClip soundClip)
+    {
+        SFXSource.Stop();
+        SFXSource.PlayOneShot(soundClip);
+    }
+
+    public IEnumerator PlayAudioInSequence(List<AudioClip> audioClipList)
+    {
+        foreach (AudioClip audioClip in audioClipList)
+        {
+            SFXSource.PlayOneShot(audioClip);
+            yield return new WaitForSeconds(audioClip.length);
+        }
+    }
 }

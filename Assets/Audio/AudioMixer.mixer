@@ -79,6 +79,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 0506e72412260ab4d894406f7a7a1476
+    name: BassMinigameVolume
   - guid: 0aa0f132dff9f6640b900578d97e50e1
     name: DistortionLevel
   - guid: 944da96c7ba29af4a90bd3f08b4038be
