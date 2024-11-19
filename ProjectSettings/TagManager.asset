@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Note
   - Audio
+  - MushroomHouse
+  - fox
+  - Bar
   layers:
   - Default
   - TransparentFX
