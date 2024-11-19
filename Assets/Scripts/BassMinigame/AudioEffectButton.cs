@@ -19,17 +19,21 @@ public class AudioEffectButton : MonoBehaviour
     bool effectOn = false;
     PlayButton playButtonScript;
 
+
+    private Color onColor = Color.black;
+    private Color offColor = Color.white;
+
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<SpriteRenderer>().color = Color.red;
+        GetComponent<SpriteRenderer>().color = offColor;
         playButtonScript = playButton.GetComponent<PlayButton>();
     }
 
     private void OnMouseDown()
     {
         effectOn = !effectOn;
-        GetComponent<SpriteRenderer>().color = effectOn ? Color.green : Color.red;
+        GetComponent<SpriteRenderer>().color = effectOn ? onColor : offColor;
 
 
         switch (effectType)
