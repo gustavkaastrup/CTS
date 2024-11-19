@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Note
   - Audio
+  - LongNote
   layers:
   - Default
   - TransparentFX
