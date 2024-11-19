@@ -293,6 +293,10 @@ MonoBehaviour:
   BassLowA: {fileID: 8300000, guid: b54ad7476df3e3547a20dce1a7072cbc, type: 3}
   BassMidE: {fileID: 8300000, guid: 5bd3aa54f50eb3a49871f2a21a5c182e, type: 3}
   BassHighE: {fileID: 8300000, guid: 28350f7bd1ef94a48a33d05fed572f18, type: 3}
+  BarAmbience: {fileID: 0}
+  VocalsC: {fileID: 0}
+  VocalsE: {fileID: 0}
+  VocalsG: {fileID: 0}
 --- !u!4 &271619589
 Transform:
   m_ObjectHideFlags: 0
@@ -1317,8 +1321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc7be9005fe9b7848af8ada34e4a7377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPlayButton: {fileID: 1337740803}
-  ReferencePlayButton: {fileID: 1454319561}
+  PlayButtonPairs:
+  - PlayerPlayButton: {fileID: 1337740803}
+    ReferencePlayButton: {fileID: 1454319561}
   NextButton: {fileID: 329748196}
   Camera: {fileID: 1997366197}
 --- !u!1 &1812147820

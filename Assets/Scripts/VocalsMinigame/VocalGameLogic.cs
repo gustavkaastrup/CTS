@@ -6,8 +6,8 @@ using UnityEngine.Audio;
 public class VocalGameLogic : MonoBehaviour
 {
     public bool audioPlayed = false;
-    public AudioMixer audioMixer;
-    public AudioManager audioManager;
+    public static AudioManager audioManager;
+    public VocalsNoteIndicator noteIndicator;
 
     public enum Note
     {
@@ -15,7 +15,17 @@ public class VocalGameLogic : MonoBehaviour
         E,
         G
     }
+    [System.Serializable]
+    public class Melody
+    {
+        public List<Note> notes;
+    }
 
+    public List<Melody> melodies;
+    public List<VocalsNoteIndicator> vocalsNoteIndicators;
+
+    private int melodyIndex = 0;
+    private bool failed = false;
     private List<AudioClip> melodyAudioClips;
 
     void Awake()
@@ -31,13 +41,15 @@ public class VocalGameLogic : MonoBehaviour
             audioManager.PlaySoundEffectStopPrevious(clip);
         }
 
+        noteIndicator.PlayedNote(note);
+
         if (audioPlayed)
         {
             // TODO
         }
     }
 
-    public AudioClip GetAudioClipFromNote(Note note)
+    public static AudioClip GetAudioClipFromNote(Note note)
     {
         switch (note)
         {
@@ -51,5 +63,27 @@ public class VocalGameLogic : MonoBehaviour
                 Debug.Log("Vocals: Note to audio clip returned null");
                 return null;
         }
+    }
+
+    public bool IsRunning()
+    {
+        return !failed;
+    }
+    public void Failed()
+    {
+        failed = true;
+        Camera.main.backgroundColor = Color.red;
+    }
+    public void Passed()
+    {
+        Camera.main.backgroundColor = Color.green;
+    }
+    public int GetMelodyIndex()
+    {
+        return melodyIndex;
+    }
+    public Melody GetCurrentMelody()
+    {
+        return melodies[melodyIndex];
     }
 }

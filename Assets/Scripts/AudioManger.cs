@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip BassHighE;
     public AudioClip BarAmbience;
 
-    [Header("Bass minigame")]
+    [Header("Vocals minigame")]
     public AudioClip VocalsC;
     public AudioClip VocalsE;
     public AudioClip VocalsG;
