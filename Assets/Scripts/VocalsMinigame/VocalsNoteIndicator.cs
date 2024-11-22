@@ -29,6 +29,7 @@ public class VocalsNoteIndicator : MonoBehaviour
         if (!correct)
         {
             vocalGameLogic.Failed();
+            return;
         }
         stoplightIndex++;
         if (stoplightIndex ==  vocalsNoteStoplights.Count)

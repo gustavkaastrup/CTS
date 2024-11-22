@@ -67,16 +67,17 @@ public class VocalGameLogic : MonoBehaviour
 
     public bool IsRunning()
     {
+        return true;
         return !failed;
     }
     public void Failed()
     {
         failed = true;
-        Camera.main.backgroundColor = Color.red;
+        //Camera.main.backgroundColor = Color.gray;
     }
     public void Passed()
     {
-        Camera.main.backgroundColor = Color.green;
+        //Camera.main.backgroundColor = Color.green;
     }
     public int GetMelodyIndex()
     {

@@ -11,9 +11,12 @@ public class VocalsNoteStoplight : MonoBehaviour
     public SpriteRenderer Note_E;
     public SpriteRenderer Note_G;
 
+    private Color correctColor = Color.green;
+    private Color wrongColor = Color.red;
+
     public bool PlayNote(VocalGameLogic.Note note)
     {
-        Color noteColor = (note == CorrectNote) ? Color.green : Color.red;
+        Color noteColor = (note == CorrectNote) ? correctColor : wrongColor;
         
         switch(note)
         {
