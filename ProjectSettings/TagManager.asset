@@ -9,6 +9,7 @@ TagManager:
   - MushroomHouse
   - fox
   - Bar
+  - Loader
   layers:
   - Default
   - TransparentFX
