@@ -13,15 +13,6 @@ public class PPText3 : MonoBehaviour
         // Get the Text component
         textComponent = GetComponent<Text>(); 
 
-        // Set the text to be empty by default
-        textComponent.text = "";
-
-        // Optional: Clear any previous value in PlayerPrefs at the start
-        // This ensures no unwanted default value is lingering in PlayerPrefs
-        if (!PlayerPrefs.HasKey(hit))
-        {
-            PlayerPrefs.SetString(hit, "");
-        }
     }
 
     void Update()
