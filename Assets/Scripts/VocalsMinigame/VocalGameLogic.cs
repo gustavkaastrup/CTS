@@ -25,7 +25,7 @@ public class VocalGameLogic : MonoBehaviour
     public List<VocalsNoteIndicator> vocalsNoteIndicators;
 
     private int melodyIndex = 0;
-    private bool failed = false;
+    //private bool failed = false;
     private List<AudioClip> melodyAudioClips;
 
     void Awake()
@@ -68,11 +68,11 @@ public class VocalGameLogic : MonoBehaviour
     public bool IsRunning()
     {
         return true;
-        return !failed;
+        //return !failed;
     }
     public void Failed()
     {
-        failed = true;
+        //failed = true;
         //Camera.main.backgroundColor = Color.gray;
     }
     public void Passed()
