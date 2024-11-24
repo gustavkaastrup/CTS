@@ -4,6 +4,9 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     public TMP_Text dialogueText; // Referenz auf das TMP_Text-Element
+    public Loader.Scene minigameLevelScene;
+
+    private Loader loader;
 
     private string[] dialogues = {
         "Hi, you found the right spot to convince my brother to join the band!",
@@ -16,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         ShowNextDialogue(); // Zeigt den ersten Dialog an
+        loader = GameObject.FindGameObjectWithTag("Loader").GetComponent<Loader>();
     }
 
     public void UpdateDialogue(string newText)
@@ -30,6 +34,9 @@ public class DialogueManager : MonoBehaviour
             UpdateDialogue(dialogues[currentDialogueIndex]);
             currentDialogueIndex++;
         }
-       
+        else
+        {
+            loader.LoadScene(minigameLevelScene);
+        }
     }
 }

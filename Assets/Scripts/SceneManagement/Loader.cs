@@ -16,15 +16,23 @@ public class Loader : MonoBehaviour
 
         DialogueSceneEntrance_1,
         DialogueSceneKitchen_2,
-        DialogueSceneLivingroom_3
+        DialogueSceneLivingroom_3,
+
+        BassLevel_1,
+        BassLevel_2,
+        BassLevel_3
     }
 
-    private Dictionary<Scene, bool> isSceneAviable;
-    private HashSet<Scene> initialAviableScenes = new HashSet<Scene> { 
+    private HashSet<Scene> aviableScenes = new HashSet<Scene> { 
         Scene.Gameworld,
         Scene.Gameworld_Mushroom,
-        Scene.DialogueSceneEntrance_1
+        Scene.DialogueSceneEntrance_1,
+
+        Scene.BassLevel_1,
+        Scene.BassLevel_2,
+        Scene.BassLevel_3,
     };
+
     private Stack<Scene> lastSenesStack;
 
     private void Awake()
@@ -33,12 +41,6 @@ public class Loader : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
-            isSceneAviable = new Dictionary<Scene, bool>();
-            foreach (Scene scene in Enum.GetValues(typeof(Scene)))
-            {
-                isSceneAviable[scene] = initialAviableScenes.Contains(scene);
-            }
             lastSenesStack = new Stack<Scene>();
         }
         else
@@ -49,7 +51,7 @@ public class Loader : MonoBehaviour
 
     public void LoadScene(Scene sceneName)
     {
-        if (isSceneAviable[sceneName])
+        if (aviableScenes.Contains(sceneName))
         {
             String currentSceneName = SceneManager.GetActiveScene().name;
             if (!Enum.TryParse(currentSceneName, out Scene currentScene))
@@ -76,7 +78,7 @@ public class Loader : MonoBehaviour
 
     public void MakeSceneAviable(Scene scene)
     {
-        isSceneAviable[scene] = true;
+        aviableScenes.Add(scene);
     }
 
     public void LoadLastScene()
