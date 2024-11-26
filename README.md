@@ -15,11 +15,12 @@ Story
 
 Save
 
-- [ ] Save system
+- [ ] Save system - Gustav
 
 Final Level
 
 - [ ] Concept
+- [ ] Implementation
 
 Documentation
 
@@ -32,3 +33,24 @@ Visuals
 - [ ] Guitar
 - [ ] Drums
 - [ ] Menu
+- [ ] Start Scene - Eske
+- [ ] End Scene - Eske
+- [ ] Button - Eske
+
+Music
+
+- [ ] Backgound music - Gustav
+- [ ] Last level music
+
+Sound Effects
+
+- [ ] Buttons
+- [ ] Enviromental sounds
+- [ ] Animals speaking
+
+Minigames 3 Levels + Final stage level
+
+- [ ] Bass - Jachym
+- [ ] Vocals - Jachym
+- [ ] Guitar
+- [ ] Drums - Gustav
