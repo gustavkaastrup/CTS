@@ -1,2 +1,13 @@
 ## Tasks
-- [ ] Task
+- [ ] Menu
+-   [ ] Begining screen
+-   [ ] Pause Menu
+-   [ ] Setting Screen
+- [ ] Story
+-   [ ] overall
+-   [ ] Dialog
+-   [ ] Dialog
+-     [ ] Mushroom
+-     [ ] Forest
+-     [ ] Bar
+-     [ ] Stage
