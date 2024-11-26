@@ -1,2 +1,2 @@
 ## Tasks
-- [] Task
+- [ ] Task
