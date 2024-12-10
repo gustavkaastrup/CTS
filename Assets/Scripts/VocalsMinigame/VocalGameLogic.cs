@@ -25,7 +25,8 @@ public class VocalGameLogic : MonoBehaviour
     public List<VocalsNoteIndicator> vocalsNoteIndicators;
 
     private int melodyIndex = 0;
-    //private bool failed = false;
+    private int noteIndex = 0;
+    private bool isRunning = true;
     private List<AudioClip> melodyAudioClips;
 
     void Awake()
@@ -41,11 +42,24 @@ public class VocalGameLogic : MonoBehaviour
             audioManager.PlaySoundEffectStopPrevious(clip);
         }
 
-        noteIndicator.PlayedNote(note);
+        noteIndicator.PlayedNote(note, noteIndex);
 
         if (audioPlayed)
         {
             // TODO
+        }
+        noteIndex++;
+        if (noteIndex >= melodies[melodyIndex].notes.Count)
+        {
+            noteIndex = 0;
+            melodyIndex++;
+            if (melodyIndex >= melodies.Count)
+            {
+                isRunning = false;
+            } else
+            {
+                noteIndicator.ResetNoteStoplights();
+            }
         }
     }
 
@@ -67,8 +81,7 @@ public class VocalGameLogic : MonoBehaviour
 
     public bool IsRunning()
     {
-        return true;
-        //return !failed;
+        return isRunning;
     }
     public void Failed()
     {

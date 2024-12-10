@@ -746,6 +746,8 @@ MonoBehaviour:
   noteIndicator: {fileID: 1136704166}
   melodies:
   - notes: 000000000100000002000000
+  - notes: 010000000000000001000000
+  - notes: 020000000000000000000000
   vocalsNoteIndicators:
   - {fileID: 1136704166}
 --- !u!4 &1474741541

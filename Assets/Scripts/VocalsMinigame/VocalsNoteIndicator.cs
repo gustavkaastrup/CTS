@@ -7,34 +7,28 @@ public class VocalsNoteIndicator : MonoBehaviour
     public VocalGameLogic vocalGameLogic;
     public List<VocalsNoteStoplight> vocalsNoteStoplights;
 
-    private int stoplightIndex = 0;
-
     private void Start()
     {
-        InitializeNoteStoplights();
+        ResetNoteStoplights();
     }
 
-    private void InitializeNoteStoplights()
+    public void ResetNoteStoplights()
     {
         VocalGameLogic.Melody melody = vocalGameLogic.GetCurrentMelody();
 
         for (int i = 0; i < vocalsNoteStoplights.Count; i++)
         {
-            vocalsNoteStoplights[i].CorrectNote = melody.notes[i];
+            VocalsNoteStoplight stoplight = vocalsNoteStoplights[i];
+            stoplight.ResetNote(melody.notes[i]);
         }
     }
-    public void PlayedNote(VocalGameLogic.Note note)
+    public void PlayedNote(VocalGameLogic.Note note, int noteIndex)
     {
-        bool correct = vocalsNoteStoplights[stoplightIndex].PlayNote(note);
+        bool correct = vocalsNoteStoplights[noteIndex].PlayNote(note);
         if (!correct)
         {
             vocalGameLogic.Failed();
             return;
-        }
-        stoplightIndex++;
-        if (stoplightIndex ==  vocalsNoteStoplights.Count)
-        {
-            vocalGameLogic.Passed();
         }
     }
 }

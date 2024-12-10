@@ -13,6 +13,7 @@ public class VocalsNoteStoplight : MonoBehaviour
 
     private Color correctColor = Color.green;
     private Color wrongColor = Color.red;
+    private Color neutralColor = Color.grey;
 
     public bool PlayNote(VocalGameLogic.Note note)
     {
@@ -32,5 +33,13 @@ public class VocalsNoteStoplight : MonoBehaviour
         }
 
         return note == CorrectNote;
+    }
+
+    public void ResetNote(VocalGameLogic.Note correctNote)
+    { 
+        CorrectNote = correctNote;
+        Note_C.color = neutralColor;
+        Note_E.color = neutralColor;
+        Note_G.color = neutralColor;
     }
 }
