@@ -3,6 +3,7 @@ Menu
 - [ ] Begining screen
 - [ ] Pause Menu
 - [ ] Setting Screen
+- [ ] Restart Menu
 
 Story
 
