@@ -12,7 +12,8 @@ public class AudioEffectButton : MonoBehaviour
     {
         Echo,
         Distortion,
-        Pitchshifter
+        Pitchshifter,
+        LowPassFilter
     }
     public EffectType effectType = EffectType.Echo;
 
@@ -46,6 +47,9 @@ public class AudioEffectButton : MonoBehaviour
                 break;
             case EffectType.Pitchshifter:
                 playButtonScript.pitchshifterOn = effectOn;
+                break;
+            case EffectType.LowPassFilter:
+                playButtonScript.lowPassFilterOn = effectOn;
                 break;
         }
     }

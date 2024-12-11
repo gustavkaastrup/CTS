@@ -73,4 +73,9 @@ public class AudioManager : MonoBehaviour
             yield return new WaitForSeconds(audioClip.length);
         }
     }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+    }
 }

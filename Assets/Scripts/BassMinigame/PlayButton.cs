@@ -10,6 +10,7 @@ public class PlayButton : MonoBehaviour
     [SerializeField] public bool echoOn = false;
     [SerializeField] public bool distortionOn = false;
     [SerializeField] public bool pitchshifterOn = false;
+    [SerializeField] public bool lowPassFilterOn = false;
 
     public AudioMixer audioMixer;
     public KeyCode PlayKeyboeadLetter = KeyCode.Q;
@@ -19,7 +20,7 @@ public class PlayButton : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(PlayKeyboeadLetter))
+        if (Input.GetKeyDown(PlayKeyboeadLetter))
         {
             Play();
         }
@@ -34,9 +35,13 @@ public class PlayButton : MonoBehaviour
     private void SetEffects()
     {
         audioMixer.SetFloat("EchoWetmix", echoOn ? 100 : 0);
+
         audioMixer.SetFloat("DistortionLevel", distortionOn ? 0.9f : 0);
         audioMixer.SetFloat("BassMinigameVolume", distortionOn ?  -15.0f : 0);
+
         audioMixer.SetFloat("PitchshifterPitch", pitchshifterOn ? 1.1f : 1);
+
+        audioMixer.SetFloat("LowpassCutoffFreq", lowPassFilterOn ? 1400 : 22000);
     }
 
     private void OnMouseDown()

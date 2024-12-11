@@ -5,12 +5,14 @@ using UnityEngine.Audio;
 
 public class BarAmbience : MonoBehaviour
 {
-    public AudioMixer audioMixer;
+    [Range(0f, 1f)]
+    public float musicVolume = 0.5f;
 
     AudioManager audioManager;
     void Start()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager.SetMusicVolume(musicVolume);
         audioManager.PlayMusic(audioManager.BarAmbience);
     }
 }
