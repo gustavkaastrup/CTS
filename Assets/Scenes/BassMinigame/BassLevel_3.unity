@@ -1293,10 +1293,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: audioClipIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: pitchshifterOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
+      propertyPath: lowPassFilterOn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
@@ -1438,7 +1442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: audioClipIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: pitchshifterOn
@@ -1512,6 +1516,10 @@ PrefabInstance:
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: echoOn
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
+      propertyPath: audioClipIndex
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: pitchshifterOn
@@ -1675,7 +1683,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: echoOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: distortionOn
@@ -1683,7 +1691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: audioClipIndex
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: pitchshifterOn
@@ -2192,7 +2200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: audioClipIndex
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: pitchshifterOn
@@ -3596,15 +3604,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: echoOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: distortionOn
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
+      propertyPath: audioClipIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: pitchshifterOn
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
+      propertyPath: lowPassFilterOn
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 134837748941321201, guid: 8ceb85b1ab55333459a0d34ad02eef17, type: 3}
       propertyPath: PlayKeyboeadLetter
