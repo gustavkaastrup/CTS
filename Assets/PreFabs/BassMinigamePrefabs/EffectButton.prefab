@@ -159,6 +159,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad89407cbb8b67c4d8bfd91ad0db2199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notClickedSprite: {fileID: 3286163911610860551, guid: 9b7e964f43c429442b3b2c153c623157, type: 3}
-  clickedSprite: {fileID: 3286163911610860551, guid: 14c73e0f5135def479e1896e840d7495, type: 3}
+  notClickedSprite: {fileID: 3286163911610860551, guid: e03ebd7358138f64185ec8785f3cedbe, type: 3}
+  clickedSprite: {fileID: 3286163911610860551, guid: 35a329605b7299b47891503a41f6382d, type: 3}
   keepClicked: 1
