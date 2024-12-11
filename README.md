@@ -1,38 +1,39 @@
 ## Tasks
-Menu
+Menu - Alexander
 - [ ] Begining screen
 - [ ] Pause Menu
 - [ ] Setting Screen
+- [ ] Restart Menu
 
-Story
+Story - Eske
 
 - [ ] overall - order of instruments
 - [ ] Dialog Mushroom
 - [ ] Dialog Forest
 - [ ] Dialog Bar
 - [ ] Dialog Stage
-- [ ] Dialog Final Level
+- [ ] Dialog Final Level - optional
 
 Save
 
 - [ ] Save system - Gustav
 
-Final Level
+Final Level - optional Jachym, decide on Monday
 
 - [ ] Concept
 - [ ] Implementation
 
-Documentation
+Documentation - on Sunday
 
 - [ ] write documantetion
 
-Visuals
+For each game add visauls and write controls https://docs.google.com/document/d/1UC-fAIJzxVYn2cJzZYhd9EVhtyCPf8f9VG6S2MuJ3Ig/edit?tab=t.0
 
-- [ ] Bass
-- [ ] Vocals
-- [ ] Guitar
-- [ ] Drums
-- [ ] Menu
+- [ ] Bass - Jachym
+- [ ] Vocals - Jachym
+- [ ] Guitar - Alexander
+- [ ] Drums - Gustav
+
 - [ ] Start Scene - Eske
 - [ ] End Scene - Eske
 - [ ] Button - Eske
@@ -40,17 +41,17 @@ Visuals
 Music
 
 - [ ] Backgound music - Gustav
-- [ ] Last level music
+- [ ] Last level music - optional decide on Monday
 
-Sound Effects
+Sound Effects - Jachym
 
 - [ ] Buttons
 - [ ] Enviromental sounds
 - [ ] Animals speaking
 
-Minigames 3 Levels + Final stage level
+Minigames 3 Levels + (Final stage level optional)
 
 - [ ] Bass - Jachym
 - [ ] Vocals - Jachym
-- [ ] Guitar
+- [ ] Guitar - Alexander
 - [ ] Drums - Gustav
