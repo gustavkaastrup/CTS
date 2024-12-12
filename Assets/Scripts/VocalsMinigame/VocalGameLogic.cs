@@ -27,11 +27,12 @@ public class VocalGameLogic : MonoBehaviour
     private int melodyIndex = 0;
     private int noteIndex = 0;
     private bool isRunning = true;
-    private List<AudioClip> melodyAudioClips;
+    private List<List<AudioClip>> melodiesAudioClips;
 
     void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        InitiateMelodiesAudioClips();
     }
 
     public void PlayNote(Note note)
@@ -63,15 +64,43 @@ public class VocalGameLogic : MonoBehaviour
         }
     }
 
+    private void InitiateMelodiesAudioClips()
+    {
+        melodiesAudioClips = new List<List<AudioClip>>();
+
+        foreach (Melody melody in melodies)
+        {
+            List<AudioClip> melodyAudioClips = new List<AudioClip>();
+
+            foreach (Note note in melody.notes)
+            {
+                AudioClip audioClip = GetAudioClipFromNote(note);
+                if (audioClip != null)
+                {
+                    melodyAudioClips.Add(audioClip);
+                }
+            }
+            melodiesAudioClips.Add(melodyAudioClips);
+        }
+    }
+
+    public void PlayCurrentMelody()
+    {
+        List<AudioClip> melodyAudioClips = melodiesAudioClips[melodyIndex];
+        Debug.Log("current melody clips count " + melodyAudioClips.Count);
+        StartCoroutine(audioManager.PlayAudioInSequence(melodyAudioClips));
+        audioPlayed = true;
+    }
+
     public static AudioClip GetAudioClipFromNote(Note note)
     {
         switch (note)
         {
-            case VocalGameLogic.Note.C:
+            case Note.C:
                 return audioManager.VocalsC;
-            case VocalGameLogic.Note.E:
+            case Note.E:
                 return audioManager.VocalsE;
-            case VocalGameLogic.Note.G:
+            case Note.G:
                 return audioManager.VocalsG;
             default:
                 Debug.Log("Vocals: Note to audio clip returned null");
