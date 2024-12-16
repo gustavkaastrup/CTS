@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+//using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class VocalGameLogic : MonoBehaviour
 {
-    public bool audioPlayed = false;
     public static AudioManager audioManager;
     public VocalsNoteIndicator noteIndicator;
 
@@ -28,38 +27,48 @@ public class VocalGameLogic : MonoBehaviour
     private int noteIndex = 0;
     private bool isRunning = true;
     private List<List<AudioClip>> melodiesAudioClips;
+    private bool referenceMelodyPlayed;
+    private bool referenceMelodyCurrentlyPlaying;
 
     void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         InitiateMelodiesAudioClips();
+        referenceMelodyPlayed = false;
+        referenceMelodyCurrentlyPlaying = false;
     }
 
     public void PlayNote(Note note)
     {
+        if (referenceMelodyCurrentlyPlaying)
+        {
+            return;
+        }
+
         AudioClip clip = GetAudioClipFromNote(note);
         if (clip != null)
         {
             audioManager.PlaySoundEffectStopPrevious(clip);
         }
 
-        noteIndicator.PlayedNote(note, noteIndex);
+        if (referenceMelodyPlayed)
+        {
+            noteIndicator.PlayedNote(note, noteIndex);
 
-        if (audioPlayed)
-        {
-            // TODO
-        }
-        noteIndex++;
-        if (noteIndex >= melodies[melodyIndex].notes.Count)
-        {
-            noteIndex = 0;
-            melodyIndex++;
-            if (melodyIndex >= melodies.Count)
+            noteIndex++;
+            if (noteIndex >= melodies[melodyIndex].notes.Count)
             {
-                isRunning = false;
-            } else
-            {
-                noteIndicator.ResetNoteStoplights();
+                noteIndex = 0;
+                melodyIndex++;
+                if (melodyIndex >= melodies.Count)
+                {
+                    isRunning = false;
+                }
+                else
+                {
+                    noteIndicator.ResetNoteStoplights();
+                    referenceMelodyPlayed = false;
+                }
             }
         }
     }
@@ -86,10 +95,22 @@ public class VocalGameLogic : MonoBehaviour
 
     public void PlayCurrentMelody()
     {
-        List<AudioClip> melodyAudioClips = melodiesAudioClips[melodyIndex];
-        Debug.Log("current melody clips count " + melodyAudioClips.Count);
-        StartCoroutine(audioManager.PlayAudioInSequence(melodyAudioClips));
-        audioPlayed = true;
+        if (!referenceMelodyPlayed)
+        {
+            List<AudioClip> melodyAudioClips = melodiesAudioClips[melodyIndex];
+            //Debug.Log("current melody clips count " + melodyAudioClips.Count);
+            StartCoroutine(audioManager.PlayAudioInSequence(melodyAudioClips));
+            //PlayMelody(melodyAudioClips);
+            referenceMelodyPlayed = true;
+        }
+    }
+
+
+    private IEnumerator PlayMelody(List<AudioClip> melodyAudioClips)
+    {
+        referenceMelodyCurrentlyPlaying = true;
+        yield return StartCoroutine(audioManager.PlayAudioInSequence(melodyAudioClips));
+        referenceMelodyCurrentlyPlaying = false;
     }
 
     public static AudioClip GetAudioClipFromNote(Note note)

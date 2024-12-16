@@ -47,7 +47,7 @@ public class VocalsNoteIndicator : MonoBehaviour
 
         currentStoplights = new List<GameObject>();
         vocalsNoteStoplights = new List<VocalsNoteStoplight>();
-        int stoplightPositionX = 0;
+        int stoplightPositionX = -4;
 
         foreach (VocalGameLogic.Note note in vocalGameLogic.GetCurrentMelody().notes)
         {
