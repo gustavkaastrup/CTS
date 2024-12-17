@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+
 //using System.Threading.Tasks;
 using UnityEngine;
 
@@ -7,6 +9,10 @@ public class VocalGameLogic : MonoBehaviour
 {
     public static AudioManager audioManager;
     public VocalsNoteIndicator noteIndicator;
+    public TextMeshProUGUI instructionText;
+    public VocalsTimer timer;
+    [Range(0f, 3f)]
+    public float SECONDS_PER_NOTE = 1;
 
     public enum Note
     {
@@ -98,9 +104,7 @@ public class VocalGameLogic : MonoBehaviour
         if (!referenceMelodyPlayed)
         {
             List<AudioClip> melodyAudioClips = melodiesAudioClips[melodyIndex];
-            //Debug.Log("current melody clips count " + melodyAudioClips.Count);
-            StartCoroutine(audioManager.PlayAudioInSequence(melodyAudioClips));
-            //PlayMelody(melodyAudioClips);
+            StartCoroutine(PlayMelody(melodyAudioClips));
             referenceMelodyPlayed = true;
         }
     }
@@ -109,8 +113,16 @@ public class VocalGameLogic : MonoBehaviour
     private IEnumerator PlayMelody(List<AudioClip> melodyAudioClips)
     {
         referenceMelodyCurrentlyPlaying = true;
+        instructionText.text = "LISTEN";
         yield return StartCoroutine(audioManager.PlayAudioInSequence(melodyAudioClips));
+        instructionText.text = "PLAY";
+        timer.Begin(melodyAudioClips.Count, SECONDS_PER_NOTE, OnTimerEnd);
         referenceMelodyCurrentlyPlaying = false;
+    }
+
+    private void OnTimerEnd()
+    {
+        Debug.Log("LOGIC: timer ended");
     }
 
     public static AudioClip GetAudioClipFromNote(Note note)
