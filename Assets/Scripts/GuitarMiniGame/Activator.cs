@@ -10,7 +10,7 @@ public class Activator : MonoBehaviour
     GameObject note;
     Color old; 
     public Transform activatorCenter;  // The center point of the activator for accuracy calculation
-    public float maxScoreDistance = 1.0f;  // Max distance for perfect score
+    public float maxScoreDistance = 2.0f;  // Max distance for perfect score
 
     // Multiplier and streak tracking
     private int currentMultiplier = 1;
@@ -54,25 +54,25 @@ public class Activator : MonoBehaviour
         // Define your score thresholds
         int baseScore = 0;
 
-        if (distance <= 0.2f)
+        if (distance <= 0.6f)
         {
             baseScore = 100;  
              PlayerPrefs.SetString("Hit", "Perfect"); 
             Debug.Log("Perfect Hit! Distance: " + distance);
         }
-        else if (distance <= 0.5f)
+        else if (distance <= 0.8f)
         {
             baseScore = 75;   // Great score
             PlayerPrefs.SetString("Hit", "Great"); 
             Debug.Log("Great Hit! Distance: " + distance);
         }
-        else if (distance <= 0.7f)
+        else if (distance <= 1.2f)
         {
             baseScore = 50;   // Good 
             PlayerPrefs.SetString("Hit", "Good"); 
             Debug.Log("Good Hit! Distance: " + distance);
         }
-        else if (distance <= maxScoreDistance)
+        else if (distance <= 10.0f)
         {
             baseScore = 25;   // Barely hit, fewer points
             PlayerPrefs.SetString("Hit", "Barely Hit");

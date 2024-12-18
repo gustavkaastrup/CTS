@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    Rigidbody2D rb;
-    public float speed;
-    void Awake(){
-        rb = GetComponent<Rigidbody2D>();
-    }
+    double timeInstantiated;
+    public float assignedTime;
     // Start is called before the first frae uspdate
     void Start()
     {
-        rb.velocity= new Vector2(0,-speed);
+        timeInstantiated = SongManager.GetAudioSourceTime();
     }
 
     // Update is called once per frame
     void Update()
     {
+        double timeSinceInstantiated = SongManager.GetAudioSourceTime() - timeInstantiated;
+        float t = (float)(timeSinceInstantiated / (SongManager.Instance.noteTime * 2));
+        GetComponent<SpriteRenderer>().enabled = true;
         
+        if (t > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            transform.localPosition = Vector3.Lerp(Vector3.up * SongManager.Instance.noteSpawnY, Vector3.up * SongManager.Instance.noteDespawnY, t); 
+            GetComponent<SpriteRenderer>().enabled = true;
+        }
     }
 }
