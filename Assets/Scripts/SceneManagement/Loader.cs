@@ -57,8 +57,15 @@ public class Loader : MonoBehaviour
     {
         Scene.Gameworld_Mushroom, Scene.Gameworld_Forest, Scene.Gameworld_Bar, Scene.Gameworld_Stage
     };
-
     private Stack<Scene> lastScenesStack;
+
+    public enum LevelState
+    {
+        NotPlayed,
+        Finished,
+        Failed
+    }
+    public List<List<LevelState>> levelsState;
 
     private void Awake()
     {
@@ -71,6 +78,19 @@ public class Loader : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void InitFinishedLevels()
+    {
+        levelsState = new List<List<LevelState>>();
+        for (int i = 0; i < 4; i++)
+        {
+            levelsState.Add(new List<LevelState>());
+            for (int j = 0; j < 3; j++)
+            {
+                levelsState[i].Add(LevelState.NotPlayed);
+            }
         }
     }
 
@@ -103,6 +123,7 @@ public class Loader : MonoBehaviour
 
     public void LevelSuccess()
     {
+        levelsState[gameworldIndex][levelIndex] = LevelState.Finished;
         lastLevelSuccess = true;
         levelPlayed = false;
         levelIndex++;
@@ -124,9 +145,11 @@ public class Loader : MonoBehaviour
 
         Scene nextDialogeScene = dialogScenes[gameworldIndex][levelIndex];
         MakeSceneAviable(nextDialogeScene);
+        LoadLastScene();
     }
     public void LevelFailed()
     {
+        levelsState[gameworldIndex][levelIndex] = LevelState.Failed;
         lastLevelSuccess = false;
         levelPlayed = true;
         LoadLastScene();

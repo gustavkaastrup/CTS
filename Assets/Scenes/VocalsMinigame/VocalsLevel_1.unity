@@ -1241,11 +1241,11 @@ MonoBehaviour:
   instructionText: {fileID: 166377202}
   scoreText: {fileID: 1402890142}
   timer: {fileID: 1206858215}
-  SECONDS_PER_NOTE: 0.77
+  SECONDS_PER_NOTE: 1
+  minGoalCorrectNotes: 1
   melodies:
-  - notes: 000000000100000002000000020000000200000002000000
-  - notes: 010000000000000001000000
-  - notes: 020000000000000000000000
+  - notes: 000000000100000002000000
+  - notes: 020000000100000000000000
   vocalsNoteIndicators:
   - {fileID: 1136704166}
 --- !u!4 &1474741541

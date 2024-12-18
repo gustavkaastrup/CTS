@@ -497,6 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1960772693}
+  minigameLevelScene: 13
 --- !u!4 &1214516424
 Transform:
   m_ObjectHideFlags: 0

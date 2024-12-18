@@ -8,6 +8,7 @@ using UnityEngine;
 public class VocalGameLogic : MonoBehaviour
 {
     public static AudioManager audioManager;
+    private Loader loader;
     public VocalsNoteIndicator noteIndicator;
     public TextMeshProUGUI instructionText;
     public TextMeshProUGUI scoreText;
@@ -34,7 +35,7 @@ public class VocalGameLogic : MonoBehaviour
 
     private int melodyIndex = 0;
     private int noteIndex = 0;
-    private bool isRunning = true;
+    //private bool isRunning = true;
     private List<List<AudioClip>> melodiesAudioClips;
     private bool referenceMelodyPlayed;
     private bool referenceMelodyCurrentlyPlaying;
@@ -44,6 +45,7 @@ public class VocalGameLogic : MonoBehaviour
     void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        loader = GameObject.FindGameObjectWithTag("Loader").GetComponent<Loader>();
         InitiateMelodiesAudioClips();
         referenceMelodyPlayed = false;
         referenceMelodyCurrentlyPlaying = false;
@@ -74,6 +76,7 @@ public class VocalGameLogic : MonoBehaviour
             noteIndex++;
             if (noteIndex >= melodies[melodyIndex].notes.Count)     // last note of current melody was played
             {
+                timer.Stop();
                 SetNewMelody();
             }
         }
@@ -83,9 +86,11 @@ public class VocalGameLogic : MonoBehaviour
     {
         noteIndex = 0;
         melodyIndex++;
+        Debug.Log("vocals - melody index " + melodyIndex + " melodies count " + melodies.Count);
         if (melodyIndex >= melodies.Count)                   // last melody was played
         {
-            isRunning = false;
+            //isRunning = false;
+            EndLevel();
         }
         else
         {
@@ -167,7 +172,11 @@ public class VocalGameLogic : MonoBehaviour
     {
         if (correctNotesCount >= minGoalCorrectNotes)
         {
-
+            loader.LevelSuccess();
+        }
+        else
+        {
+            loader.LevelFailed();
         }
     }
     public Melody GetCurrentMelody()

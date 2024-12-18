@@ -37,7 +37,10 @@ public class VocalsTimer : MonoBehaviour
             remainingDuration-=secondsPerNote;
             yield return new WaitForSeconds(secondsPerNote);
         }
-        OnEnd();
+        if (isRunning)
+        {
+            OnEnd();
+        }
     }
 
     private void OnEnd()

@@ -47,4 +47,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BassMinigame/BassLevel_1.unity
     guid: d2c1896e65a736d40b8712a044000661
+  - enabled: 1
+    path: Assets/Scenes/VocalsMinigame/VocalsLevel_1.unity
+    guid: 2957c1140b266df4b92a50f9ad5e84f4
+  - enabled: 1
+    path: Assets/Scenes/VocalsMinigame/VocalsLevel_2.unity
+    guid: e2166cde1e5496847a262bd98f6e050e
+  - enabled: 1
+    path: Assets/Scenes/VocalsMinigame/VocalsLevel_3.unity
+    guid: 6ce2c193c1aa96040934ce84a4d91f8c
   m_configObjects: {}
