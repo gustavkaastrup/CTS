@@ -12,6 +12,7 @@ public class VocalsTimer : MonoBehaviour
     private float remainingDuration;
     private float secondsPerNote;
     private Action actionOnEnd;
+    private bool isRunning;
 
     public void Begin(int noteCount, float secondsPerNote, Action actionOnEnd)
     {
@@ -19,12 +20,18 @@ public class VocalsTimer : MonoBehaviour
         remainingDuration = Duration;
         this.secondsPerNote = secondsPerNote;
         this.actionOnEnd = actionOnEnd;
+        isRunning = true;
         StartCoroutine(UpdateTimer());
+    }
+
+    public void Stop()
+    {
+        isRunning = false;
     }
 
     private IEnumerator UpdateTimer()
     {
-        while (remainingDuration >= 0)
+        while (isRunning && remainingDuration >= 0)
         {
             uiFill.fillAmount = Mathf.InverseLerp(0, Duration, remainingDuration);
             remainingDuration-=secondsPerNote;

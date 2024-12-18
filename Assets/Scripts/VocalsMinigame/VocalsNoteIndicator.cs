@@ -28,14 +28,9 @@ public class VocalsNoteIndicator : MonoBehaviour
             stoplight.ResetNote(melody.notes[i]);
         }
     }
-    public void PlayedNote(VocalGameLogic.Note note, int noteIndex)
+    public bool PlayedNote(VocalGameLogic.Note note, int noteIndex)
     {
-        bool correct = vocalsNoteStoplights[noteIndex].PlayNote(note);
-        if (!correct)
-        {
-            vocalGameLogic.Failed();
-            return;
-        }
+        return vocalsNoteStoplights[noteIndex].PlayNote(note);
     }
 
     private void InitiateStoplights()
