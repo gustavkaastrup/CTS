@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackButton : MonoBehaviour
 {
-    public Loader loader;
+    private Loader loader;
     void Start()
     {
         loader = GameObject.FindGameObjectWithTag("Loader").GetComponent<Loader>();
