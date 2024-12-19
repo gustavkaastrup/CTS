@@ -3,7 +3,7 @@ Menu - Alexander
 - [ ] Begining screen
 - [ ] Pause Menu (optional)
 - [ ] Setting Screen (optional)
-- [ ] Restart Menu
+- [ ] Restart Menu (optional)
 
 Story - on Wednesday
 
@@ -25,7 +25,7 @@ Music
 - [ ] Backgound music - Gustav
 - [ ] Last level music - Jachym
 
-Sound Effects - Jachym
+Sound Effects 
 
 - [ ] Buttons
 - [ ] Enviromental sounds

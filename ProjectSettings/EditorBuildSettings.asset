@@ -36,17 +36,41 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameworld/Gameworld.unity
     guid: 1b7561957aac24e56bb4bf24b1f2d844
   - enabled: 1
-    path: Assets/Scenes/Dialogue/DialogueSceneMushroom/DialogueSceneKitchen_2.unity
+    path: Assets/Scenes/Dialogue/DialogueSceneMushroom/DialogueSceneMushroom_2.unity
     guid: 16212ced8ebf856409f672ce600c7080
   - enabled: 1
-    path: Assets/Scenes/Dialogue/DialogueSceneMushroom/DialogueSceneLivingroom_3.unity
+    path: Assets/Scenes/Dialogue/DialogueSceneMushroom/DialogueSceneMushroom_3.unity
     guid: cce108e0a9f4fed46b153a8d616bcad0
   - enabled: 1
-    path: Assets/Scenes/Dialogue/DialogueSceneMushroom/DialogueSceneEntrance_1.unity
+    path: Assets/Scenes/Dialogue/DialogueSceneMushroom/DialogueSceneMushroom_1.unity
     guid: 8c71336390ac13e469eb7cefa54c975f
   - enabled: 1
     path: Assets/Scenes/BassMinigame/BassLevel_1.unity
     guid: d2c1896e65a736d40b8712a044000661
+  - enabled: 1
+    path: Assets/Scenes/VocalsMinigame/VocalsLevel_1.unity
+    guid: 2957c1140b266df4b92a50f9ad5e84f4
+  - enabled: 1
+    path: Assets/Scenes/VocalsMinigame/VocalsLevel_2.unity
+    guid: e2166cde1e5496847a262bd98f6e050e
+  - enabled: 1
+    path: Assets/Scenes/VocalsMinigame/VocalsLevel_3.unity
+    guid: 6ce2c193c1aa96040934ce84a4d91f8c
+  - enabled: 1
+    path: Assets/Scenes/Dialogue/DialogueSceneForest/DialogueSceneForest_1.unity
+    guid: 0b2b0fa36f54a7949820179826ead665
+  - enabled: 1
+    path: Assets/Scenes/Dialogue/DialogueSceneForest/DialogueSceneForest_3.unity
+    guid: 09153e6f8406c451da1f93d3dd57e8a2
+  - enabled: 1
+    path: Assets/Scenes/Dialogue/DialogueSceneForest/DialogueSceneForest_2.unity
+    guid: ec3aab522492d449499efc3f80b86865
+  - enabled: 1
+    path: Assets/Scenes/BassMinigame/BassLevel_3.unity
+    guid: d0a03dab909d9254d91b7f04b12f85b4
+  - enabled: 1
+    path: Assets/Scenes/BassMinigame/BassLevel_2.unity
+    guid: 9f242be7073aded4495c3f89e86c2b48
   - enabled: 1
     path: Assets/Scenes/Menus/IntroVideo.unity
     guid: fe79d341ae3e3467499f830c502bb7e6

@@ -48,22 +48,6 @@ public class ButtonSpriteSwitcher : MonoBehaviour
             }
         }
     }
-
-    void FitSpriteToCollider()
-    {
-        // Get the size of the collider
-        Vector2 colliderSize = boxCollider.size;
-
-        // Get the size of the sprite in world units
-        Vector2 spriteSize = spriteRenderer.sprite.bounds.size;
-
-        // Calculate scale factor to fit the sprite within the collider
-        float scaleX = colliderSize.x / spriteSize.x;
-        float scaleY = colliderSize.y / spriteSize.y;
-
-        // Apply the scale to the sprite without affecting the collider
-        transform.localScale = new Vector3(scaleX, scaleY, transform.localScale.z);
-    }
     private void FitSpriteToObject()
     {
         // Get the size of the sprite
@@ -71,9 +55,6 @@ public class ButtonSpriteSwitcher : MonoBehaviour
 
         // Get the size of the object (assuming it's a square, use scale to fit the sprite)
         Vector2 objectSize = transform.localScale;
-
-        //spriteSize.x = objectSize.x;
-        //spriteSize.y = objectSize.y;
 
         // Calculate scale factor to make the sprite fit within the object
         float scaleFactor = Mathf.Min(objectSize.x / spriteSize.x, objectSize.y / spriteSize.y);
