@@ -910,7 +910,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c4c6323cfee7a0c47b8efc01747154a9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4c703f21021431946857b37c0be49258, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1008,13 +1008,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c3ed83a31c559418a8239b2fd095f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiFilePath: Assets/DrumV2/MidiFiles/DrumMiniGame_lvl_1_100bpm.mid
+  midiFilePath: Assets/DrumV2/MidiFiles/DrumMinigame_lvl3_140BPMmidi.mid
   audioSource: {fileID: 1029288197}
   currentTime: 0
   sampleRate: 0
   currentPosInBar: 0
   currentBar: 0
-  bpm: 100
+  bpm: 140
   currentSample: 0
 --- !u!114 &1029288199
 MonoBehaviour:
@@ -1333,8 +1333,8 @@ MonoBehaviour:
   snarePrefab: {fileID: 6296825222844902743, guid: be45ceb9b212df248bf62a2113a4b57f, type: 3}
   hihatPrefab: {fileID: 8269863963031648047, guid: e419d08b44fc8654c9e93c37e28b7dcc, type: 3}
   KickRadius: 3
-  SnareRadius: 4
-  HihatRadius: 5
+  SnareRadius: 3.5
+  HihatRadius: 4
 --- !u!1 &1509387186
 GameObject:
   m_ObjectHideFlags: 0
