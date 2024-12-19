@@ -86,7 +86,7 @@ public class VocalGameLogic : MonoBehaviour
     {
         noteIndex = 0;
         melodyIndex++;
-        Debug.Log("vocals - melody index " + melodyIndex + " melodies count " + melodies.Count);
+        instructionText.text = "PRESS PLAY BUTTON";
         if (melodyIndex >= melodies.Count)                   // last melody was played
         {
             //isRunning = false;
