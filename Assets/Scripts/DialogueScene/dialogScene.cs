@@ -34,9 +34,27 @@ public class DialogueManager : MonoBehaviour
             "This time you are going to have less time - good singer has to be able to sing FAST!"
         };
 
-        introDialogues[1, 0] = new List<string>() { "1 0 intro" };
-        introDialogues[1, 1] = new List<string>() { "1 1 intro" };
-        introDialogues[1, 2] = new List<string>() { "1 2 intro" };
+          introDialogues[1, 0] = new List<string>(){
+            "You found us in the forest!",
+            "We have to somehow wake up bear so he can join our band!",
+            "Maybe if we play some guitar he will wake up! He loves Rock and Roll so that is sure to wake him up", 
+            "Come on play some Rock and Roll to wake him up! Lets try Eye of the Tiger that is one of is favorites",
+            "For this game you have to play the notes as they hit the circles at the bottom. Each lane corresponds to a arrow on your keyboard."
+         };
+
+        introDialogues[1, 1] = new List<string>()
+        {
+            "Damn, that was not enough to wake him up.",
+            "Let us try another song he loves I Love Rock 'n' Roll"
+        };
+
+        introDialogues[1, 2] = new List<string>()
+        {
+           "Wow, not even I Love Rock 'n' Roll was enough to wake him up.",
+           "I know a song that is guaranteed to wake him up",
+           "His favorite song of all time is Slow Ride",
+           "You will have to play this song! However this is a pretty hard song and you will have to play it well for him to wake up"
+        };
 
         introDialogues[2, 0] = new List<string>() { "2 0 intro" };
         introDialogues[2, 1] = new List<string>() { "2 1 intro" };
