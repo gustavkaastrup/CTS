@@ -51,8 +51,9 @@ public class Loader : MonoBehaviour
         BassLevel_2,
         BassLevel_3,
 
-        // TODO
-        // ADD DRUMS GAME
+        Drum_lvl_1,
+        Drum_lvl_2,
+        Drum_lvl_3,
     }
 
     private HashSet<Scene> aviableScenes = new HashSet<Scene> {
@@ -67,8 +68,8 @@ public class Loader : MonoBehaviour
     {
         new List<Scene>() {Scene.DialogueSceneMushroom_1, Scene.DialogueSceneMushroom_2, Scene.DialogueSceneMushroom_3},
         new List<Scene>() {Scene.DialogueSceneForest_1, Scene.DialogueSceneForest_2, Scene.DialogueSceneForest_3},
-        new List<Scene>() {Scene.DialogueSceneForest_1, Scene.DialogueSceneForest_2, Scene.DialogueSceneForest_3},
-        new List<Scene>() {Scene.DialogueSceneForest_1, Scene.DialogueSceneForest_2, Scene.DialogueSceneForest_3},
+        new List<Scene>() {Scene.DialogueSceneBar_1, Scene.DialogueSceneBar_2, Scene.DialogueSceneBar_3},
+        new List<Scene>() {Scene.DialogueSceneStage_1, Scene.DialogueSceneStage_2, Scene.DialogueSceneStage_3},
     };
     private List<Scene> gameworldScenes = new List<Scene>()
     {
@@ -76,9 +77,9 @@ public class Loader : MonoBehaviour
     };
     private List<List<Scene>> levelScenes = new List<List<Scene>>()
     {
-        new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
-        new List<Scene>() {Scene.GuitarMiniGameLevel1, Scene.GuitarMiniGameLevel2, Scene.GuitarMiniGameLevel3},
         new List<Scene>() {Scene.BassLevel_1, Scene.BassLevel_2, Scene.BassLevel_3},
+        new List<Scene>() {Scene.GuitarMiniGameLevel1, Scene.GuitarMiniGameLevel2, Scene.GuitarMiniGameLevel3},
+        new List<Scene>() {Scene.Drum_lvl_1, Scene.Drum_lvl_2, Scene.Drum_lvl_3},
         new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
     };
 

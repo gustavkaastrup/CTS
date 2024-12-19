@@ -83,4 +83,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GuitarMiniGame/GuitarMiniGameLevel3.unity
     guid: 63d2e91e3e3104c90ab8f3ef761b4ac3
+  - enabled: 1
+    path: Assets/Scenes/Dialogue/DialogueSceneBar/DialogueSceneBar_1.unity
+    guid: 01ad44ef03800fc4e8ccfb84859e97e3
+  - enabled: 1
+    path: Assets/Scenes/Dialogue/DialogueSceneBar/DialogueSceneBar_2.unity
+    guid: a2aaffe7ddc91468b9331776e3c6cea5
+  - enabled: 1
+    path: Assets/Scenes/Dialogue/DialogueSceneBar/DialogueSceneBar_3.unity
+    guid: 8fb08366e74194c8295242f69d86233e
+  - enabled: 1
+    path: Assets/Scenes/DrumMinigame/Drum_lvl_1.unity
+    guid: 4b09113031998284db1cf889899bc02b
+  - enabled: 1
+    path: Assets/Scenes/DrumMinigame/Drum_lvl_2.unity
+    guid: 76fdf654e85807b4faef2a363452df20
+  - enabled: 1
+    path: Assets/Scenes/DrumMinigame/Drum_lvl_3.unity
+    guid: 94a4a11be8e7d2244a0b722dee49e713
   m_configObjects: {}
