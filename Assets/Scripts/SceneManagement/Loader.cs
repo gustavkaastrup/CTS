@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Loader : MonoBehaviour
 {
+    [Header("FOR DEBUG: set complete level")]
+    [Range(0, 3)] public int completeGameWorldIndex;
+    [Range(0, 2)] public int completeLevelIndex;
     [HideInInspector]
     public bool lastLevelSuccess;
     [HideInInspector]
@@ -28,27 +31,34 @@ public class Loader : MonoBehaviour
         DialogueSceneForest_2,
         DialogueSceneForest_3,
 
-        BassLevel_1,
-        BassLevel_2,
-        BassLevel_3,
+        DialogueSceneBar_1,
+        DialogueSceneBar_2,
+        DialogueSceneBar_3,
+
+        DialogueSceneStage_1,
+        DialogueSceneStage_2,
+        DialogueSceneStage_3,
 
         VocalsLevel_1,
         VocalsLevel_2,
         VocalsLevel_3,
+
+        GuitarMiniGameLevel1,
+        GuitarMiniGameLevel2,
+        GuitarMiniGameLevel3,
+
+        BassLevel_1,
+        BassLevel_2,
+        BassLevel_3,
+
+        // TODO
+        // ADD DRUMS GAME
     }
 
     private HashSet<Scene> aviableScenes = new HashSet<Scene> {
         Scene.Gameworld,
         Scene.Gameworld_Mushroom,
         Scene.DialogueSceneMushroom_1,
-
-        Scene.VocalsLevel_1,
-        Scene.VocalsLevel_2,
-        Scene.VocalsLevel_3,
-
-        Scene.BassLevel_1,
-        Scene.BassLevel_2,
-        Scene.BassLevel_3,
     };
 
     private int levelIndex = 0;
@@ -56,6 +66,8 @@ public class Loader : MonoBehaviour
     private List<List<Scene>> dialogScenes = new List<List<Scene>>()
     {
         new List<Scene>() {Scene.DialogueSceneMushroom_1, Scene.DialogueSceneMushroom_2, Scene.DialogueSceneMushroom_3},
+        new List<Scene>() {Scene.DialogueSceneForest_1, Scene.DialogueSceneForest_2, Scene.DialogueSceneForest_3},
+        new List<Scene>() {Scene.DialogueSceneForest_1, Scene.DialogueSceneForest_2, Scene.DialogueSceneForest_3},
         new List<Scene>() {Scene.DialogueSceneForest_1, Scene.DialogueSceneForest_2, Scene.DialogueSceneForest_3},
     };
     private List<Scene> gameworldScenes = new List<Scene>()
@@ -65,8 +77,8 @@ public class Loader : MonoBehaviour
     private List<List<Scene>> levelScenes = new List<List<Scene>>()
     {
         new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
+        new List<Scene>() {Scene.GuitarMiniGameLevel1, Scene.GuitarMiniGameLevel2, Scene.GuitarMiniGameLevel2},
         new List<Scene>() {Scene.BassLevel_1, Scene.BassLevel_2, Scene.BassLevel_3},
-        new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
         new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
     };
 
@@ -88,10 +100,35 @@ public class Loader : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             lastScenesStack = new Stack<Scene>();
             InitFinishedLevels();
+            InitCompleteLevels();                   // just for debugging
+            MakeLevelScenesAviable();
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void InitCompleteLevels()
+    {
+        for (int i = 0; i <= completeGameWorldIndex; i++)
+        {
+            MakeSceneAviable(gameworldScenes[i]);
+            for (int j = 0; j <= completeLevelIndex; j++)
+            {
+                MakeSceneAviable(dialogScenes[i][j]);
+            }
+        }
+    }
+
+    private void MakeLevelScenesAviable()
+    {
+        foreach (var sceneList in levelScenes)
+        {
+            foreach (var scene in sceneList)
+            {
+                MakeSceneAviable(scene);
+            }
         }
     }
 

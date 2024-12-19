@@ -27,6 +27,7 @@ public class VocalsTimer : MonoBehaviour
     public void Stop()
     {
         isRunning = false;
+        uiFill.fillAmount = 1;
     }
 
     private IEnumerator UpdateTimer()
