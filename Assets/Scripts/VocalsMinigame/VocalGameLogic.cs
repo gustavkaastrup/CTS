@@ -50,6 +50,7 @@ public class VocalGameLogic : MonoBehaviour
         referenceMelodyPlayed = false;
         referenceMelodyCurrentlyPlaying = false;
         correctNotesCount = 0;
+        instructionText.text = "PRESS PLAY BUTTON";
     }
 
     public void PlayNote(Note note)
