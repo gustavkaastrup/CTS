@@ -704,6 +704,14 @@ PrefabInstance:
       value: DialogueManager
       objectReference: {fileID: 0}
     - target: {fileID: 5904929418036128284, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
+      propertyPath: nextButton
+      value: 
+      objectReference: {fileID: 1264924794}
+    - target: {fileID: 5904929418036128284, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1960772693}
+    - target: {fileID: 5904929418036128284, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
       propertyPath: gameWorldIndex
       value: 2
       objectReference: {fileID: 0}
