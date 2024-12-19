@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e63cd7713fd8754f8e2faa07fbb5484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completeGameWorldIndex: 1
-  completeLevelIndex: 1
+  completeGameWorldIndex: 0
+  completeLevelIndex: 0
   lastLevelSuccess: 0
   levelPlayed: 0
