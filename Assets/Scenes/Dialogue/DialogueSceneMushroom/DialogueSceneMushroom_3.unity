@@ -435,7 +435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -116, y: 24.768005}
+  m_AnchoredPosition: {x: -115.99997, y: 24.768005}
   m_SizeDelta: {x: 0, y: -0.21960449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686304056
@@ -581,7 +581,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1960772693}
-  minigameLevelScene: 14
+  minigameLevelScene: 17
+  nextButton: {fileID: 1264924794}
+  gameWorldIndex: 0
+  levelIndex: 2
 --- !u!4 &1214516424
 Transform:
   m_ObjectHideFlags: 0

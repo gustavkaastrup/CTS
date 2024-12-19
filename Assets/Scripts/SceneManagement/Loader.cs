@@ -24,6 +24,10 @@ public class Loader : MonoBehaviour
         DialogueSceneMushroom_2,
         DialogueSceneMushroom_3,
 
+        DialogueSceneForest_1,
+        DialogueSceneForest_2,
+        DialogueSceneForest_3,
+
         BassLevel_1,
         BassLevel_2,
         BassLevel_3,
@@ -52,11 +56,20 @@ public class Loader : MonoBehaviour
     private List<List<Scene>> dialogScenes = new List<List<Scene>>()
     {
         new List<Scene>() {Scene.DialogueSceneMushroom_1, Scene.DialogueSceneMushroom_2, Scene.DialogueSceneMushroom_3},
+        new List<Scene>() {Scene.DialogueSceneForest_1, Scene.DialogueSceneForest_2, Scene.DialogueSceneForest_3},
     };
     private List<Scene> gameworldScenes = new List<Scene>()
     {
         Scene.Gameworld_Mushroom, Scene.Gameworld_Forest, Scene.Gameworld_Bar, Scene.Gameworld_Stage
     };
+    private List<List<Scene>> levelScenes = new List<List<Scene>>()
+    {
+        new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
+        new List<Scene>() {Scene.BassLevel_1, Scene.BassLevel_2, Scene.BassLevel_3},
+        new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
+        new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
+    };
+
     private Stack<Scene> lastScenesStack;
 
     public enum LevelState
@@ -74,6 +87,7 @@ public class Loader : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             lastScenesStack = new Stack<Scene>();
+            InitFinishedLevels();
         }
         else
         {
@@ -113,6 +127,11 @@ public class Loader : MonoBehaviour
         {
             Debug.Log("Loader: " + sceneName.ToString() + " scene is not aviable yet");
         }
+    }
+
+    public void LoadLevelScene(int gameworldIndex,  int levelIndex)
+    {
+        LoadScene(levelScenes[gameworldIndex][levelIndex]);
     }
 
     public void ReloadCurrentScene()
