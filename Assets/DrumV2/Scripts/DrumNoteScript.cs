@@ -32,35 +32,17 @@ public class DrumNoteScript : MonoBehaviour
             {
                 SetActive();
             }
-            CheckForKeyPress();
         } else if (!isHit && AudioMidiController.instance.currentTime > targetTime + hitWindowSeconds)
         {
             Destroy(gameObject);
+            DrumScoreManager.instance.ResetCombo();
         }
     }
-
-    void CheckForKeyPress()
+    
+    public void HitNote()
     {
-        if (Input.GetKeyDown(KeyCode.K) && noteName == "C")
-        {
-            HitNote();
-        }
-        else if (Input.GetKeyDown(KeyCode.S) && noteName == "D")
-        {
-            HitNote();
-        }
-        else if (Input.GetKeyDown(KeyCode.H) && noteName == "E")
-        {
-            HitNote();
-        }
-        else if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.H))
-        {
-            MissNote();
-        }
-    }
+        if (isHit) return; // Prevent multiple activations
 
-     void HitNote()
-    {
         isHit = true;
         float timeDifference = AudioMidiController.instance.currentTime - (float)targetTime;
         DrumScoreManager.instance.AddScore(timeDifference);
@@ -68,17 +50,14 @@ public class DrumNoteScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void MissNote()
-    {
-        DrumPlayerSoundManager.instance.PlayMissSound();
-        DrumScoreManager.instance.ResetCombo();
-    }
+
 
     public void SetActive()
     {
         isActive = true;
         spriteRenderer.color = activeColor;
-         transform.position = new Vector3(transform.position.x, transform.position.y, -1); 
+        transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+        DrumInputManager.instance.RegisterActiveNote(this); 
 
     }
 
@@ -87,5 +66,10 @@ public class DrumNoteScript : MonoBehaviour
         isActive = false;
         spriteRenderer.color = inactiveColor;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        DrumInputManager.instance.UnregisterActiveNote(this);
+    }
+    void OnDestroy()
+    {
+        DrumInputManager.instance.UnregisterActiveNote(this);
     }
 }

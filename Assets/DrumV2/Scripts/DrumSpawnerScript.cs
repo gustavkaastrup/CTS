@@ -11,9 +11,9 @@ public class DrumSpawnerScript : MonoBehaviour
 
     public List<MidiNote> midiNotes = new List<MidiNote>();
 
-    public float KickRadius = 1.0f;
-    public float SnareRadius = 2.0f;
-    public float HihatRadius = 3.0f;
+    public float KickRadius = 2.0f;
+    public float SnareRadius = 4.0f;
+    public float HihatRadius = 6.0f;
     private float currentTime => AudioMidiController.instance.currentTime;
     private int currentBar => AudioMidiController.instance.currentBar;
     private int barIndex = 0;
@@ -38,7 +38,7 @@ public class DrumSpawnerScript : MonoBehaviour
             lastProcessedBar = currentBar;
         }
     }
-
+    
     void SpawnNotesForUpcomingBar()
     {
         Debug.Log("Spawning notes for upcoming bar");

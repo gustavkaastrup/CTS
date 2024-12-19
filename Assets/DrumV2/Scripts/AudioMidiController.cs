@@ -62,8 +62,8 @@ public class AudioMidiController : MonoBehaviour
 
     public float GetBarLength()
     {
-         float bpm = this.bpm; // Retrieve BPM from the audio controller
-         int beatsPerBar = 4;  // Adjust this for other time signatures
+         float bpm = this.bpm;
+         int beatsPerBar = 4;  
          return 60f / bpm * beatsPerBar;
     }
 
