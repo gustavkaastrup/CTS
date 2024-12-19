@@ -56,7 +56,16 @@ public class DialogueManager : MonoBehaviour
            "You will have to play this song! However this is a pretty hard song and you will have to play it well for him to wake up"
         };
 
-        introDialogues[2, 0] = new List<string>() { "2 0 intro" };
+        introDialogues[2, 0] = new List<string>() { 
+            "We need to find the next member of our band, the vocalist!",
+            "We heard that the birb is the best rock'n'roller on the whole island.",
+            "We have to convince him to join our band!",
+            "Unfortunately, he only listens to weird electronic music.",
+            "You have to convince him that rock music is better than electronic music.",
+            "You play the drums by pressing K, S, and H on your keyboard. Go ahead and try it!",
+            "You have to hit correct drum in time with the music. The better you play the more points you get!"
+
+        };
         introDialogues[2, 1] = new List<string>() { "2 1 intro" };
         introDialogues[2, 2] = new List<string>() { "2 2 intro" };
 

@@ -10,11 +10,6 @@ public class CircleBlockerScript : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         if (GameLevelIndex <= Loader.Instance.completeGameWorldIndex)
         {
             UnlockCircle();
@@ -22,8 +17,10 @@ public class CircleBlockerScript : MonoBehaviour
         {
             LockCircle();
         }
-  
     }
+
+    // Update is called once per frame
+
     void LockCircle()
     {
         spriteRenderer.enabled = true;
