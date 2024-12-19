@@ -26,8 +26,8 @@ public class VocalsTimer : MonoBehaviour
 
     public void Stop()
     {
+        //Debug.Log("Vocals timer Stopped");
         isRunning = false;
-        uiFill.fillAmount = 1;
     }
 
     private IEnumerator UpdateTimer()
@@ -38,10 +38,13 @@ public class VocalsTimer : MonoBehaviour
             remainingDuration-=secondsPerNote;
             yield return new WaitForSeconds(secondsPerNote);
         }
+
         if (isRunning)
         {
             OnEnd();
         }
+
+        uiFill.fillAmount = 1;
     }
 
     private void OnEnd()
