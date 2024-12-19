@@ -77,7 +77,7 @@ public class Loader : MonoBehaviour
     private List<List<Scene>> levelScenes = new List<List<Scene>>()
     {
         new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
-        new List<Scene>() {Scene.GuitarMiniGameLevel1, Scene.GuitarMiniGameLevel2, Scene.GuitarMiniGameLevel2},
+        new List<Scene>() {Scene.GuitarMiniGameLevel1, Scene.GuitarMiniGameLevel2, Scene.GuitarMiniGameLevel3},
         new List<Scene>() {Scene.BassLevel_1, Scene.BassLevel_2, Scene.BassLevel_3},
         new List<Scene>() {Scene.VocalsLevel_1, Scene.VocalsLevel_2, Scene.VocalsLevel_3},
     };
