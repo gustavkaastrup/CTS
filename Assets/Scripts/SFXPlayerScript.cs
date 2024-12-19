@@ -15,6 +15,7 @@ public class SFXPlayerScript : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject); // Ensure the instance persists across scenes
         }
         else
         {
@@ -24,16 +25,37 @@ public class SFXPlayerScript : MonoBehaviour
 
     public void PlayButtonPress()
     {
-        audioSource.PlayOneShot(buttonPressClip);
+        if (buttonPressClip != null)
+        {
+            audioSource.PlayOneShot(buttonPressClip);
+        }
+        else
+        {
+            Debug.LogWarning("ButtonPressClip is not assigned.");
+        }
     }
 
     public void PlayNextLevel()
     {
-        audioSource.PlayOneShot(nextLevelClip);
+        if (nextLevelClip != null)
+        {
+            audioSource.PlayOneShot(nextLevelClip);
+        }
+        else
+        {
+            Debug.LogWarning("NextLevelClip is not assigned.");
+        }
     }
 
     public void PlayGameOver()
     {
-        audioSource.PlayOneShot(gameOverClip);
+        if (gameOverClip != null)
+        {
+            audioSource.PlayOneShot(gameOverClip);
+        }
+        else
+        {
+            Debug.LogWarning("GameOverClip is not assigned.");
+        }
     }
 }

@@ -14,6 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
 
     private void OnMouseDown()
     {
+        SFXPlayerScript.instance.PlayButtonPress();
         loader.LoadScene(scene);
     }
 }
