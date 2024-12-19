@@ -10,12 +10,14 @@ public class BGMPlayerScript : MonoBehaviour
     public AudioClip forestMusicClip;
     public AudioClip mushroomMusicClip;
     public AudioClip stageMusicClip;
+    public AudioClip mainMenuMusicClip;
     public enum MusicType
     {
         Bar,
         Forest,
         Mushroom,
-        Stage
+        Stage,
+        MainMenu
     }
 
     public MusicType currentMusicType;
@@ -45,6 +47,9 @@ public class BGMPlayerScript : MonoBehaviour
                 break;
             case MusicType.Stage:
                 PlayerStageMusic();
+                break;
+            case MusicType.MainMenu:
+                PlayMainMenuMusic();
                 break;
         }
     }
@@ -84,6 +89,15 @@ public class BGMPlayerScript : MonoBehaviour
         }
         else{
             Debug.LogWarning("StageMusicClip is not assigned.");
+        }
+    }
+    public void PlayMainMenuMusic(){
+        if(mainMenuMusicClip != null){
+            audioSource.clip = mainMenuMusicClip;
+            audioSource.Play();
+        }
+        else{
+            Debug.LogWarning("MainMenuMusicClip is not assigned.");
         }
     }
 }
