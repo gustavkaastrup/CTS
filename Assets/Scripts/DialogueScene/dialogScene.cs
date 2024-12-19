@@ -37,8 +37,8 @@ public class DialogueManager : MonoBehaviour
           introDialogues[1, 0] = new List<string>(){
             "You found us in the forest!",
             "We have to somehow wake up bear so he can join our band!",
-            "Maybe if we play some guitar he will wake up! He loves Rock and Roll so that is sure to wake him up", 
-            "Come on play some Rock and Roll to wake him up! Lets try Eye of the Tiger that is one of is favorites",
+            "Maybe if we play some guitar he will wake up! He loves Rock music so that is sure to wake him up", 
+            "Come on play some rock music to wake him up! Lets try Eye of the Tiger that is one of is favorites",
             "For this game you have to play the notes as they hit the circles at the bottom. Each lane corresponds to a arrow on your keyboard."
          };
 
