@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.SceneManagement;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class UnlockableScript : MonoBehaviour
@@ -11,6 +6,7 @@ public class UnlockableScript : MonoBehaviour
     SpriteRenderer padlockSpriteRenderer;
     private string[] lock_img;
     public bool isLocked = true;
+    public int levelIndex;
     private Vector3 originalScale;
     private Color originalColor;
     void Start(){
@@ -21,6 +17,11 @@ public class UnlockableScript : MonoBehaviour
             Lock();
         }else{ 
             Unlock();
+        }
+        if(Loader.Instance.GetLevelIndex() >= levelIndex){
+            Unlock();
+        } else {
+            Lock();
         }
     }
     public void Unlock(){

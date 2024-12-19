@@ -229,4 +229,12 @@ public class Loader : MonoBehaviour
         Scene lastScene = lastScenesStack.Pop();
         SceneManager.LoadScene(lastScene.ToString());
     }
+    public int GetLevelIndex()
+    {
+        return levelIndex;
+    }
+    public int GetGameworldIndex()
+    {
+        return gameworldIndex;
+    }
 }

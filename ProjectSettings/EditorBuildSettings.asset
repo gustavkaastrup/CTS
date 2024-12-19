@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
     path: Assets/Scenes/Gameworld/Gameworld Mushroom.unity
     guid: e4830bf6bd4ff4c78b789f69e8d483ce
+  - enabled: 1
+    path: Assets/Scenes/Gameworld/Gameworld.unity
+    guid: 1b7561957aac24e56bb4bf24b1f2d844
   - enabled: 1
     path: Assets/Scenes/Dialogue/DialogueSceneKitchen.unity
     guid: 42345699440e942038f3a7ac1dcdc343
@@ -32,9 +35,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Gameworld/Gameworld_Bar.unity
     guid: f7f67a3d3674a2d41a7a8bab6a717b97
-  - enabled: 1
-    path: Assets/Scenes/Gameworld/Gameworld.unity
-    guid: 1b7561957aac24e56bb4bf24b1f2d844
   - enabled: 1
     path: Assets/Scenes/Dialogue/DialogueSceneMushroom/DialogueSceneMushroom_2.unity
     guid: 16212ced8ebf856409f672ce600c7080
