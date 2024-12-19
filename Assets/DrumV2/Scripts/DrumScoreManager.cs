@@ -83,6 +83,7 @@ public class DrumScoreManager : MonoBehaviour
     {
         DrumPlayerSoundManager.instance.PlayMissSound();
         ResetCombo();
+        streak = 0;
     }
 
     public void ResetCombo()

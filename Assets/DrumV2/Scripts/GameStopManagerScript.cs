@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameStopManagerScript : MonoBehaviour
 {
     AudioMidiController audioMidiController;
-
+    public bool gameEnded = false;
     void Start()
     {
         audioMidiController = AudioMidiController.instance;
@@ -13,11 +13,12 @@ public class GameStopManagerScript : MonoBehaviour
 
     void Update()
     {
-        if(audioMidiController.GetComponent<AudioSource>().isPlaying == false && audioMidiController.currentBar > 0)
+        if(audioMidiController.GetComponent<AudioSource>().isPlaying == false && gameEnded == false)
         {
             Debug.Log("Game Over");
             SFXPlayerScript.instance.PlayGameOver();
             Time.timeScale = 0;
+            gameEnded = true;
         }
     }
 }
