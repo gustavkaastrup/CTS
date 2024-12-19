@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BassMinigame/BassLevel_1.unity
     guid: d2c1896e65a736d40b8712a044000661
+  - enabled: 1
+    path: Assets/Scenes/Menus/IntroVideo.unity
+    guid: fe79d341ae3e3467499f830c502bb7e6
   m_configObjects: {}
