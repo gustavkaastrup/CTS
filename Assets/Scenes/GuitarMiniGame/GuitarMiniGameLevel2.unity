@@ -207,6 +207,10 @@ PrefabInstance:
       propertyPath: key
       value: 274
       objectReference: {fileID: 0}
+    - target: {fileID: -3520539114724953746, guid: 01b85fee236184e828977d8aa58f8cb3, type: 3}
+      propertyPath: scoreCalculator
+      value: 
+      objectReference: {fileID: 1230279074}
     - target: {fileID: 1084586723585721385, guid: 01b85fee236184e828977d8aa58f8cb3, type: 3}
       propertyPath: m_Name
       value: Activator (2)
@@ -303,7 +307,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 5
-  input: 0
   notePrefab: {fileID: 3871452322670549921, guid: a961aa0a562de46bb9bf65f95a888bd2, type: 3}
   timeStamps: []
 --- !u!4 &384441739
@@ -338,6 +341,10 @@ PrefabInstance:
       propertyPath: key
       value: 276
       objectReference: {fileID: 0}
+    - target: {fileID: -3520539114724953746, guid: 01b85fee236184e828977d8aa58f8cb3, type: 3}
+      propertyPath: scoreCalculator
+      value: 
+      objectReference: {fileID: 1230279074}
     - target: {fileID: 1084586723585721385, guid: 01b85fee236184e828977d8aa58f8cb3, type: 3}
       propertyPath: m_Name
       value: Activator
@@ -521,7 +528,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 0
-  input: 0
   notePrefab: {fileID: 7048505550453504566, guid: d41813004b1ba471487d176f1cb94e29, type: 3}
   timeStamps: []
 --- !u!4 &470365541
@@ -551,6 +557,10 @@ PrefabInstance:
       propertyPath: key
       value: 275
       objectReference: {fileID: 0}
+    - target: {fileID: -3520539114724953746, guid: 01b85fee236184e828977d8aa58f8cb3, type: 3}
+      propertyPath: scoreCalculator
+      value: 
+      objectReference: {fileID: 1230279074}
     - target: {fileID: 1084586723585721385, guid: 01b85fee236184e828977d8aa58f8cb3, type: 3}
       propertyPath: m_Name
       value: Activator (3)
@@ -721,7 +731,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 4
-  input: 0
   notePrefab: {fileID: 3894117780044604358, guid: 83cf5ae1b2e884bb98bb079d57486c45, type: 3}
   timeStamps: []
 --- !u!4 &751884313
@@ -751,6 +760,10 @@ PrefabInstance:
       propertyPath: key
       value: 273
       objectReference: {fileID: 0}
+    - target: {fileID: -3520539114724953746, guid: 01b85fee236184e828977d8aa58f8cb3, type: 3}
+      propertyPath: scoreCalculator
+      value: 
+      objectReference: {fileID: 1230279074}
     - target: {fileID: 1084586723585721385, guid: 01b85fee236184e828977d8aa58f8cb3, type: 3}
       propertyPath: m_Name
       value: Activator (1)
@@ -905,6 +918,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: Score
+--- !u!1 &1230279073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230279075}
+  - component: {fileID: 1230279074}
+  m_Layer: 0
+  m_Name: ScoreCalculator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1230279074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230279073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2f3f8602ae54b899e1295710f01b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxScoreDistance: 2
+  streakThresholds: 0300000006000000090000000c000000
+  maxMultiplier: 2
+--- !u!4 &1230279075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230279073}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1239688345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,8 +1187,9 @@ MonoBehaviour:
   - {fileID: 384441738}
   - {fileID: 751884312}
   songDelayInSeconds: 2
-  marginOfError: 0
+  targetScore: 7000
   inputDelayInMilliseconds: 0
+  amountOfLanes: 3
   fileLocation: iloverock4.mid
   noteTime: 1
   noteSpawnY: 8
@@ -1439,7 +1500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noteRestriction: 2
-  input: 0
   notePrefab: {fileID: 5942819929549024112, guid: 5168393c3eab2488eb542ca7d0014b61, type: 3}
   timeStamps: []
 --- !u!4 &1487427020
@@ -1643,3 +1703,4 @@ SceneRoots:
   - {fileID: 1487427020}
   - {fileID: 384441739}
   - {fileID: 751884313}
+  - {fileID: 1230279075}

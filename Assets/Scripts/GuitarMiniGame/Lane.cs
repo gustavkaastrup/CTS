@@ -7,7 +7,6 @@ using UnityEngine;
 public class Lane : MonoBehaviour
 {
     public Melanchall.DryWetMidi.MusicTheory.NoteName noteRestriction;
-    public KeyCode input;
     public GameObject notePrefab;
     List<Note> notes = new List<Note>();
     public List<double> timeStamps = new List<double>();
@@ -15,7 +14,6 @@ public class Lane : MonoBehaviour
     int spawnIndex = 0;
     int inputIndex = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         
@@ -31,7 +29,6 @@ public class Lane : MonoBehaviour
             }
         }
     }
-    // Update is called once per frame
     void Update()
     {
         if (spawnIndex < timeStamps.Count)
@@ -43,24 +40,20 @@ public class Lane : MonoBehaviour
                 note.GetComponent<Note>().assignedTime = (float)timeStamps[spawnIndex];
                 spawnIndex++;
             }
+            if (spawnIndex == timeStamps.Count)
+            {
+                SongManager.Instance.LaneFinishedSpawning();
+            }
         }
 
         if (inputIndex < timeStamps.Count)
         {
             double timeStamp = timeStamps[inputIndex];
-            double marginOfError = SongManager.Instance.marginOfError;
-            double audioTime = SongManager.GetAudioSourceTime() - (SongManager.Instance.inputDelayInMilliseconds / 1000.0);
+            double audioTime = SongManager.GetAudioSourceTime();
 
         }       
     
     }
-    /*private void Hit()
-    {
-        ScoreManager.Hit();
-    }
-    private void Miss()
-    {
-        ScoreManager.Miss();
-    } */
+
 }
 
