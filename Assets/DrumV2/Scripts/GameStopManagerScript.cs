@@ -6,6 +6,7 @@ public class GameStopManagerScript : MonoBehaviour
 {
     AudioMidiController audioMidiController;
     public bool gameEnded = false;
+    public int RequiredScore;
     void Start()
     {
         audioMidiController = AudioMidiController.instance;
@@ -17,8 +18,12 @@ public class GameStopManagerScript : MonoBehaviour
         {
             Debug.Log("Game Over");
             SFXPlayerScript.instance.PlayGameOver();
-            Time.timeScale = 0;
             gameEnded = true;
+            if (DrumScoreManager.instance.score >= RequiredScore)
+            {
+                SFXPlayerScript.instance.PlayNextLevel();
+                Loader.Instance.LevelSuccess();
+            }
         }
     }
 }

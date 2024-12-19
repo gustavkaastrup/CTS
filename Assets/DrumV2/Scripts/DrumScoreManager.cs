@@ -8,7 +8,7 @@ public class DrumScoreManager : MonoBehaviour
     public GameObject scorePopupPrefab; // Reference to the ScorePopup prefab
     public Canvas canvas; // Reference to the Canvas
 
-    private int score;
+    public int score;
     private int combo;
     private int streak;
     private int maxCombo = 10;

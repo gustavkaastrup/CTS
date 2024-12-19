@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 1029288197}
   - component: {fileID: 1029288199}
   - component: {fileID: 1029288200}
+  - component: {fileID: 1029288201}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -854,6 +855,7 @@ MonoBehaviour:
   scoreText: {fileID: 845883191}
   scorePopupPrefab: {fileID: 2278477491400581278, guid: 9fe012b8b88015e419a66aebb7003a3c, type: 3}
   canvas: {fileID: 1509387189}
+  score: 0
 --- !u!114 &1029288200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,6 +871,20 @@ MonoBehaviour:
   kickVisual: {fileID: 1100043230}
   snareVisual: {fileID: 1255667606}
   hihatVisual: {fileID: 1845869624}
+--- !u!114 &1029288201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029288192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7ac1130e5cc7d4c8b862e6b55f212d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEnded: 0
+  RequiredScore: 2000
 --- !u!1 &1100043230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3263671687513459154, guid: 9fa65e3fc90bf6c448334d7dd514e08e, type: 3}

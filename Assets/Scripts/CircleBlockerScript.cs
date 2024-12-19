@@ -6,9 +6,11 @@ public class CircleBlockerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public SpriteRenderer spriteRenderer;
+    public Vector3 originalPos;
     public int GameLevelIndex;
     void Start()
     {
+        originalPos = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (GameLevelIndex <= Loader.Instance.completeGameWorldIndex)
         {
@@ -24,6 +26,8 @@ public class CircleBlockerScript : MonoBehaviour
     void LockCircle()
     {
         spriteRenderer.enabled = true;
+        originalPos.z = -5;
+        transform.position = originalPos;
     }
     void UnlockCircle()
     {
