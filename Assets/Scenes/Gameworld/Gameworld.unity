@@ -1588,7 +1588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1767954442591124829, guid: d7cf2410728015843b436adaae4eada6, type: 3}
       propertyPath: completeGameWorldIndex
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2066842088778145966, guid: d7cf2410728015843b436adaae4eada6, type: 3}
       propertyPath: m_Name

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,10 +16,22 @@ public class CheckButton : MonoBehaviour
 
     public List<PlayButtonPair> PlayButtonPairs;
     public Button NextButton;
-    public Camera Camera;
+    public TextMeshProUGUI feedbackText;
 
-    private Color CorrectBackgroundColor = Color.green;
-    private Color WrongBackgroundColor = Color.red;
+    private Loader loader;
+
+    int feedbackIndex = 0;
+    private string[] feedbackIncorectMessages =
+    {
+        "some effects arent correct, try again!",
+        "try changing some effects :)",
+        "listen carefully and try to find correct effects"
+    };
+
+    public void Start()
+    {
+        loader = GameObject.FindGameObjectWithTag("Loader").GetComponent<Loader>();
+    }
 
     public void OnCheckButtonClick()
     {
@@ -29,7 +42,8 @@ public class CheckButton : MonoBehaviour
             if (
                 playButtonPair.PlayerPlayButton.pitchshifterOn != playButtonPair.ReferencePlayButton.pitchshifterOn ||
                 playButtonPair.PlayerPlayButton.echoOn != playButtonPair.ReferencePlayButton.echoOn ||
-                playButtonPair.PlayerPlayButton.distortionOn != playButtonPair.ReferencePlayButton.distortionOn
+                playButtonPair.PlayerPlayButton.distortionOn != playButtonPair.ReferencePlayButton.distortionOn ||
+                playButtonPair.PlayerPlayButton.lowPassFilterOn != playButtonPair.ReferencePlayButton.lowPassFilterOn
                 )
             {
                 correct = false;
@@ -40,15 +54,15 @@ public class CheckButton : MonoBehaviour
         if ( correct )
         {
             NextButton.gameObject.SetActive( true );
-            Camera.backgroundColor = CorrectBackgroundColor;
         } else
         {
-            Camera.backgroundColor = WrongBackgroundColor;
+            feedbackText.text = feedbackIncorectMessages[feedbackIndex].ToString();
+            feedbackIndex = (feedbackIndex + 1) % feedbackIncorectMessages.Length;
         }
     }
 
     public void OnNexelLEvelButtonClick()
     {
-        Camera.backgroundColor = Color.yellow;
+        loader.LevelSuccess();
     }
 }
