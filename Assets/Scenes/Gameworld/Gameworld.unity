@@ -1604,7 +1604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   completeGameWorldIndex: 1
-  completeLevelIndex: 0
+  completeLevelIndex: 1
   lastLevelSuccess: 0
   levelPlayed: 0
 --- !u!4 &2038669093

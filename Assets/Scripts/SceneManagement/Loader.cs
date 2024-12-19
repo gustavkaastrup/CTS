@@ -117,8 +117,15 @@ public class Loader : MonoBehaviour
             for (int j = 0; j <= completeLevelIndex; j++)
             {
                 MakeSceneAviable(dialogScenes[i][j]);
+                
+                if (!(i == completeGameWorldIndex && j == completeLevelIndex))
+                {
+                    levelsState[i][j] = LevelState.Finished;
+                }
             }
         }
+        gameworldIndex = completeGameWorldIndex;
+        levelIndex = completeLevelIndex;
     }
 
     private void MakeLevelScenesAviable()
