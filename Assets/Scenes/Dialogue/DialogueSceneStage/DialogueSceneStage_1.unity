@@ -249,7 +249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 158, y: 60.293}
+  m_AnchoredPosition: {x: 158, y: 60.29297}
   m_SizeDelta: {x: 0, y: -0.21960449}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &686304056
@@ -631,6 +631,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
+--- !u!114 &930656917 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5904929418036128284, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
+  m_PrefabInstance: {fileID: 930656916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535b8b1a23efd45af908d59860fc35b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1204922339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -840,7 +851,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5904929418036128284, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
+      - m_Target: {fileID: 930656917}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: ShowNextDialogue
         m_Mode: 1
@@ -1284,7 +1295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5957575}
-  m_AnchoredPosition: {x: -102, y: 74.863}
+  m_AnchoredPosition: {x: -102, y: 74.86301}
   m_SizeDelta: {x: 540.12, y: 213.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1960772693
