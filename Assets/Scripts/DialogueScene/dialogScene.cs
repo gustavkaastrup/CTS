@@ -152,6 +152,7 @@ public class DialogueManager : MonoBehaviour
                 if (levelIndex == 2)
                 {
                     dialogue = outroLastGameworldLevelDialogue[gameWorldIndex];
+                    finishGameButton.gameObject.SetActive(true);
                 }
                 else
                 {

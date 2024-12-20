@@ -18,7 +18,6 @@ public class GameStopManagerScript : MonoBehaviour
         {
             Debug.Log("Game Over");
             SFXPlayerScript.instance.PlayGameOver();
-            gameEnded = true;
             if (DrumScoreManager.instance.score >= RequiredScore)
             {
                 SFXPlayerScript.instance.PlayNextLevel();
