@@ -108,7 +108,8 @@ public class DialogueManager : MonoBehaviour
         };
         outroLastGameworldLevelDialogue[1] = new List<string>()
         {
-            "outro 1",
+            "That woke him up! He will now join our band! Lets go find Bird he's a great singer.",
+            "I think he is at the bar lets go there"
         };
         outroLastGameworldLevelDialogue[2] = new List<string>()
         {
