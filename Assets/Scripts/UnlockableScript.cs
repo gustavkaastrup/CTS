@@ -19,7 +19,7 @@ public class UnlockableScript : MonoBehaviour
         }else{ 
             Unlock();
         }
-        if(Loader.Instance.GetLevelIndex() >= levelIndex && Loader.Instance.GetGameworldIndex() >= gameWorldIndex){
+        if(Loader.Instance.GetLevelIndex() >= levelIndex || Loader.Instance.GetGameworldIndex() > gameWorldIndex){
             Unlock();
         } else {
             Lock();

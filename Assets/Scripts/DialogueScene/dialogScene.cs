@@ -68,16 +68,18 @@ public class DialogueManager : MonoBehaviour
             "You have to convince him to play rock and roll with us, by blasting his socks off on the drums!",
             "You play the drums by pressing K, S, and H on your keyboard. Go ahead and try it!",
             "You have to hit correct drum in time with the music. The better you play the more points you get!",
-            "The Notes will light up when they're supposed to be played, and beware sometimes you have to play two notes at the same time!",
-            "Good Luck!"
+            "The notes will show up one bar before they're supposed to played. When they change to yellow it means get ready, and when they're green it means play the drum!",
+            "Good Luck! Try to score above 1000 points to convince the bird to join us!"
 
         };
         introDialogues[2, 1] = new List<string>() { 
             "That rocked! Unfortunately the bird isn't convinced yet, maybe we should try something faster",
-            "I got just the thing..." };
+            "I got just the thing...",
+            "Try reaching over 2000 points!" };
         introDialogues[2, 2] = new List<string>() { 
             "That didn't work either... Maybe it was too slow?",
             "I know! Try playing something even faster!",
+            "Try reaching over 3000 points this time!",
             "1,2,3,4, GO!" 
             };
 
@@ -110,7 +112,8 @@ public class DialogueManager : MonoBehaviour
         };
         outroLastGameworldLevelDialogue[1] = new List<string>()
         {
-            "outro 1",
+            "That woke him up! He will now join our band! Lets go find Bird he's a great singer.",
+            "I think he is at the bar lets go there"
         };
         outroLastGameworldLevelDialogue[2] = new List<string>()
         {

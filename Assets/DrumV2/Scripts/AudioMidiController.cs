@@ -28,6 +28,7 @@ public class AudioMidiController : MonoBehaviour
 
     void Start()
     {
+        midiFilePath = Application.streamingAssetsPath + midiFilePath;
         MidiFile midiFile = MidiFile.Read(midiFilePath);
         notes = midiFile.GetNotes();
         audioSource = GetComponent<AudioSource>();

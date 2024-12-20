@@ -15,9 +15,9 @@ public class DrumSpawnerScript : MonoBehaviour
     public float SnareRadius = 4.0f;
     public float HihatRadius = 6.0f;
     private float currentTime => AudioMidiController.instance.currentTime;
-    private int currentBar => AudioMidiController.instance.currentBar;
-    private int barIndex = 0;
-
+    public int currentBar => AudioMidiController.instance.currentBar;
+    public int barIndex = 0;
+    public int currentpBar;
     private float barLength => AudioMidiController.instance.GetBarLength();
     private int lastProcessedBar = -1;
     private Dictionary<int, List<GameObject>> spawnedNotes = new Dictionary<int, List<GameObject>>();
@@ -32,6 +32,7 @@ public class DrumSpawnerScript : MonoBehaviour
 
     void Update()
     {
+        currentpBar = currentBar;
         if(currentBar != lastProcessedBar)
         {
             SpawnNotesForUpcomingBar();
@@ -62,18 +63,7 @@ public class DrumSpawnerScript : MonoBehaviour
                 GameObject noteObject = Instantiate(GetPrefabForNoteName(note.NoteName), pos, Quaternion.identity);
                 noteObject.name = $"Note_{note.NoteName}_Bar{barIndex}_Beat{timeInBar}";
                 DrumNoteScript noteScript = noteObject.AddComponent<DrumNoteScript>();
-                noteScript.Initialize(note.NoteName, barIndex, (int)timeInBar, note.Time);
-
-                if (barIndex == currentBar)
-                {
-                    noteScript.SetActive();
-                    Debug.Log($"Spawned and activated note: {noteObject.name} at position {pos}");
-                }
-                else
-                {
-                    noteScript.SetInactive();
-                    Debug.Log($"Spawned and set inactive note: {noteObject.name} at position {pos}");
-                }
+                noteScript.Initialize(note.NoteName, barIndex, (int)timeInBar, note.Time, barStartTime);
             }
         }
     }

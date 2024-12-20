@@ -1224,6 +1224,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6774745952346765733, guid: a19ee0713e6713a4991585c148eebaed, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2630889883428817226, guid: a19ee0713e6713a4991585c148eebaed, type: 3}
       propertyPath: m_Name
       value: BGMPlayerPrefab

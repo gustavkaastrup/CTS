@@ -59,8 +59,8 @@ public class Loader : MonoBehaviour
         Scene.DialogueSceneMushroom_1,
     };
 
-    private int levelIndex = 0;
-    private int gameworldIndex = 0;
+    public int levelIndex = 0;
+    public int gameworldIndex = 0;
     private List<List<Scene>> dialogScenes = new List<List<Scene>>()
     {
         new List<Scene>() {Scene.DialogueSceneMushroom_1, Scene.DialogueSceneMushroom_2, Scene.DialogueSceneMushroom_3},

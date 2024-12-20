@@ -72,11 +72,11 @@ public class SongManager : MonoBehaviour
     }
 
    private void ReadFromFile()
-{
-    string path = Application.dataPath + "/GuitarAssets/StreamingAssets/" + fileLocation;
-    midiFile = MidiFile.Read(path);
-    GetDataFromMidi();
-}
+    {
+        midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileLocation);
+        GetDataFromMidi();
+    }
+    
     public void GetDataFromMidi()
     {
         var notes = midiFile.GetNotes();
@@ -89,7 +89,6 @@ public class SongManager : MonoBehaviour
     }
    public void StartSong()
 {
-    Debug.Log("Audio will start after a delay of: " + songDelayInSeconds + " seconds.");
     audioSource.PlayDelayed(songDelayInSeconds); // Delays the song start
 }
 
@@ -99,17 +98,14 @@ public class SongManager : MonoBehaviour
      private void OnSongEnd()
     {
         int currentScore = PlayerPrefs.GetInt("Score", 0);
-        Debug.Log("MIDI File Finished! Final Score: " + currentScore);
 
         if (currentScore >= targetScore)
         {
             loader.LevelSuccess();
-            Debug.Log("Congratulations! You met the target score of " + targetScore);
         }
         else
         {
             loader.LevelFailed();
-            Debug.Log("Better luck next time! Target score was: " + targetScore);
         }
     }
 
@@ -125,7 +121,6 @@ public class SongManager : MonoBehaviour
 
     if (finishedLanes == amountOfLanes) 
     {
-        Debug.Log("All notes have been spawned.");
         StartCoroutine(DelayOnSongEnd());
     }
 }
