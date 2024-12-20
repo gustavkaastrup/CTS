@@ -59,7 +59,7 @@ public class DialogueManager : MonoBehaviour
 
         introDialogues[2, 0] = new List<string>() { 
             "We need to find the next member of our band, the vocalist!",
-            "We heard that the birb is the best singer on the whole island.",
+            "We heard that the bird is the best singer on the whole island.",
             "We have to convince him to join our band!",
             "Unfortunately, he only listens to weird electronic music.",
             "You have to convince him to play rock and roll with us, by blasting his socks off on the drums!",

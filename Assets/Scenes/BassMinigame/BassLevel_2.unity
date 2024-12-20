@@ -405,7 +405,9 @@ MonoBehaviour:
   BassLowA: {fileID: 8300000, guid: b54ad7476df3e3547a20dce1a7072cbc, type: 3}
   BassMidE: {fileID: 8300000, guid: 5bd3aa54f50eb3a49871f2a21a5c182e, type: 3}
   BassHighE: {fileID: 8300000, guid: 28350f7bd1ef94a48a33d05fed572f18, type: 3}
-  BarAmbience: {fileID: 8300000, guid: cccc8fae1fe5e124ea854bd7d332764c, type: 3}
+  KitchenNoise: {fileID: 0}
+  WashingNoise: {fileID: 0}
+  KitchenWashingNoise: {fileID: 0}
   VocalsC: {fileID: 0}
   VocalsE: {fileID: 0}
   VocalsG: {fileID: 0}
@@ -3268,6 +3270,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1600877956}
         m_TargetAssemblyTypeName: CheckButton, Assembly-CSharp
         m_MethodName: OnCheckButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6543398782154976651, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
+        m_TargetAssemblyTypeName: SFXPlayerScript, Assembly-CSharp
+        m_MethodName: PlayButtonPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
