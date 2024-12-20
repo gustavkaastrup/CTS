@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 1029288197}
   - component: {fileID: 1029288199}
   - component: {fileID: 1029288200}
+  - component: {fileID: 1029288201}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -733,7 +734,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c4c6323cfee7a0c47b8efc01747154a9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4c703f21021431946857b37c0be49258, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -831,13 +832,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c3ed83a31c559418a8239b2fd095f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiFilePath: Assets/DrumV2/MidiFiles/DrumMiniGame_lvl_1_100bpm.mid
+  midiFilePath: Assets/DrumV2/MidiFiles/DrumMinigame_lvl3_140BPMmidi.mid
   audioSource: {fileID: 1029288197}
   currentTime: 0
   sampleRate: 0
   currentPosInBar: 0
   currentBar: 0
-  bpm: 100
+  bpm: 140
   currentSample: 0
 --- !u!114 &1029288199
 MonoBehaviour:
@@ -854,6 +855,7 @@ MonoBehaviour:
   scoreText: {fileID: 845883191}
   scorePopupPrefab: {fileID: 2278477491400581278, guid: 9fe012b8b88015e419a66aebb7003a3c, type: 3}
   canvas: {fileID: 1509387189}
+  score: 0
 --- !u!114 &1029288200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -869,6 +871,20 @@ MonoBehaviour:
   kickVisual: {fileID: 1100043230}
   snareVisual: {fileID: 1255667606}
   hihatVisual: {fileID: 1845869624}
+--- !u!114 &1029288201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029288192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7ac1130e5cc7d4c8b862e6b55f212d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEnded: 0
+  RequiredScore: 3000
 --- !u!1 &1100043230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3263671687513459154, guid: 9fa65e3fc90bf6c448334d7dd514e08e, type: 3}
@@ -1258,8 +1274,8 @@ MonoBehaviour:
   snarePrefab: {fileID: 6296825222844902743, guid: be45ceb9b212df248bf62a2113a4b57f, type: 3}
   hihatPrefab: {fileID: 8269863963031648047, guid: e419d08b44fc8654c9e93c37e28b7dcc, type: 3}
   KickRadius: 3
-  SnareRadius: 4
-  HihatRadius: 5
+  SnareRadius: 3.5
+  HihatRadius: 4
 --- !u!1 &1509387186
 GameObject:
   m_ObjectHideFlags: 0

@@ -806,8 +806,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1358,8 +1358,8 @@ MonoBehaviour:
   snarePrefab: {fileID: 6296825222844902743, guid: be45ceb9b212df248bf62a2113a4b57f, type: 3}
   hihatPrefab: {fileID: 8269863963031648047, guid: e419d08b44fc8654c9e93c37e28b7dcc, type: 3}
   KickRadius: 3
-  SnareRadius: 4
-  HihatRadius: 5
+  SnareRadius: 3.5
+  HihatRadius: 4
 --- !u!1 &1509387186
 GameObject:
   m_ObjectHideFlags: 0
