@@ -17,9 +17,10 @@ public class NewBehaviourScript : MonoBehaviour
     private void OnMouseDown()
     {
         if(unlockableScript != null){
-            if (!unlockableScript.isLocked)
+            if (!unlockableScript.isLocked){
             loader.LoadScene(scene);
             SFXPlayerScript.instance.PlayButtonPress();
+            }
         } else {
             loader.LoadScene(scene);
         }

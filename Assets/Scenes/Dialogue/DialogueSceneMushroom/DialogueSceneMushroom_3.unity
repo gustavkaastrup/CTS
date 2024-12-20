@@ -206,7 +206,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &485108747
+--- !u!1 &218701809
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,9 +214,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 485108748}
-  - component: {fileID: 485108750}
-  - component: {fileID: 485108749}
+  - component: {fileID: 218701810}
+  - component: {fileID: 218701812}
+  - component: {fileID: 218701811}
   m_Layer: 5
   m_Name: Fox
   m_TagString: Untagged
@@ -224,33 +224,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &485108748
+--- !u!224 &218701810
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485108747}
+  m_GameObject: {fileID: 218701809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99989986, y: 0.99989986, z: 0.99989986}
+  m_LocalScale: {x: 1.0002239, y: 1.0002239, z: 1.0002239}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 495685227}
+  - {fileID: 491877718}
   m_Father: {fileID: 1634383388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -225, y: -85.804016}
+  m_AnchoredPosition: {x: -225.00002, y: -85.804016}
   m_SizeDelta: {x: 576.702, y: 768.049}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &485108749
+--- !u!114 &218701811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485108747}
+  m_GameObject: {fileID: 218701809}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -274,15 +274,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &485108750
+--- !u!222 &218701812
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485108747}
+  m_GameObject: {fileID: 218701809}
   m_CullTransparentMesh: 1
---- !u!1 &495685226
+--- !u!1 &491877717
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,37 +290,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 495685227}
-  - component: {fileID: 495685228}
+  - component: {fileID: 491877718}
+  - component: {fileID: 491877719}
   m_Layer: 0
-  m_Name: guitar
+  m_Name: bass-guitar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &495685227
+--- !u!4 &491877718
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495685226}
+  m_GameObject: {fileID: 491877717}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 55, y: -58, z: -4049.9998}
-  m_LocalScale: {x: 20, y: 20, z: 20}
+  m_LocalPosition: {x: 55, y: -58, z: -4047.6685}
+  m_LocalScale: {x: 22, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 485108748}
+  m_Father: {fileID: 218701810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &495685228
+--- !u!212 &491877719
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495685226}
+  m_GameObject: {fileID: 491877717}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -352,10 +352,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2018130899
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 01a49c7a9122b4d1ba3d35b09fceed72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 254f318492e9b46009d30964ee70a57a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -920,7 +920,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 45228028}
-  - {fileID: 485108748}
+  - {fileID: 218701810}
   - {fileID: 1264924793}
   - {fileID: 686304055}
   - {fileID: 662105733}

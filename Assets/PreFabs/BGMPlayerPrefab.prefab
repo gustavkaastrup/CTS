@@ -50,6 +50,7 @@ MonoBehaviour:
   forestMusicClip: {fileID: 8300000, guid: 37c63995439b16c45a394db6e606f6a0, type: 3}
   mushroomMusicClip: {fileID: 8300000, guid: 781ae122665af9e439a291cbae289de1, type: 3}
   stageMusicClip: {fileID: 8300000, guid: 3bd94cd5eddb4b14c9f056f772065177, type: 3}
+  mainMenuMusicClip: {fileID: 8300000, guid: f9b4c1ee6b880394c9fea27cd4d12707, type: 3}
   currentMusicType: 0
 --- !u!82 &-6774745952346765733
 AudioSource:
