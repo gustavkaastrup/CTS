@@ -19,6 +19,7 @@ public class SFXPlayerScript : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
             DontDestroyOnLoad(gameObject); // Ensure the instance persists across scenes
             Debug.Log("SFXPlayerScript instance created.");
+            Debug.Log(Application.streamingAssetsPath);
         }
         else
         {
