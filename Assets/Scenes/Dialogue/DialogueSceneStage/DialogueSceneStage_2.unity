@@ -287,11 +287,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
---- !u!1 &668490443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3892847343276163167, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
+--- !u!114 &668490443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5904929418036128284, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
   m_PrefabInstance: {fileID: 668490442}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 535b8b1a23efd45af908d59860fc35b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &686304054
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +731,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 668490443}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: ShowNextDialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
