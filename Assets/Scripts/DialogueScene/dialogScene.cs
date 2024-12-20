@@ -67,7 +67,7 @@ public class DialogueManager : MonoBehaviour
             "You have to convince him to play rock and roll with us, by blasting his socks off on the drums!",
             "You play the drums by pressing K, S, and H on your keyboard. Go ahead and try it!",
             "You have to hit correct drum in time with the music. The better you play the more points you get!",
-            "The Notes will light up when they're supposed to be played, and beware sometimes you have to play two notes at the same time!",
+            "The notes will show up one bar before they're supposed to played. When they change to yellow it means get ready, and when they're green it means play the drum!",
             "Good Luck! Try to score above 1000 points to convince the bird to join us!"
 
         };
