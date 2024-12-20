@@ -26,7 +26,7 @@ public class DrumNoteScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetInactive();
         spriteRenderer.color = preColor;
-        transform.position = new Vector3(transform.position.x, transform.position.y, 5);
+        transform.position = new Vector3(transform.position.x, transform.position.y, 1);
     }
 
     void Update()
