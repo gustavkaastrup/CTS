@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
 
     private List<string>[,] introDialogues = new List<string>[4, 3];
 
+    private List<string>[] outroLastGameworldLevelDialogue = new List<string>[4];
+
     private void InitDialogues()
     {
         introDialogues[0, 0] = new List<string>(){
@@ -98,6 +100,25 @@ public class DialogueManager : MonoBehaviour
             "They liked the performance, but they want to see if Bird can sing a bit faster - good singer has to be able to sing FAST!",
             "So this time you are going to have less time to play the melody"
         };
+
+
+        outroLastGameworldLevelDialogue[0] = new List<string>()
+        {
+            "My brother really liked it so he's gonna join my new band! I know about bear-drummer, he's living in the forest - let's go back to world selection and go to next world :)",
+        };
+        outroLastGameworldLevelDialogue[1] = new List<string>()
+        {
+            "outro 1",
+        };
+        outroLastGameworldLevelDialogue[2] = new List<string>()
+        {
+            "outro 2",
+        };
+        outroLastGameworldLevelDialogue[3] = new List<string>()
+        {
+            "outro 3",
+        };
+
     }
 
     private List<string> failLevelDialogue = new List<string>()
@@ -107,12 +128,7 @@ public class DialogueManager : MonoBehaviour
     private List<string> successlevelDialogue = new List<string>()
     {
         "Congrats on completing the level! You can go back and go to the next level."
-    };
-    private List<string> successLastGameworldLevelDialogue = new List<string>()
-    {
-        "Congrats on completing last level of this world! Go back to world selection and go to next world :)",
-    };
-    
+    };  
 
     private int currentDialogueIndex = 0;
     private List<string> dialogue;
@@ -136,7 +152,7 @@ public class DialogueManager : MonoBehaviour
                         loader.LoadScene(Loader.Scene.GameworldLastScene);
                         return;
                     }
-                    dialogue = successLastGameworldLevelDialogue;
+                    dialogue = outroLastGameworldLevelDialogue[gameWorldIndex];
                 }
                 else
                 {
