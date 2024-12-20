@@ -1864,7 +1864,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1767954442591124829, guid: d7cf2410728015843b436adaae4eada6, type: 3}
       propertyPath: completeLevelIndex
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1767954442591124829, guid: d7cf2410728015843b436adaae4eada6, type: 3}
       propertyPath: completeGameWorldIndex
