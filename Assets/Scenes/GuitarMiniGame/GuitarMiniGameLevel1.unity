@@ -903,7 +903,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 2500
+  m_Text: 1500
 --- !u!1 &1009113701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1219,7 +1219,7 @@ MonoBehaviour:
   - {fileID: 1487427019}
   - {fileID: 384441738}
   songDelayInSeconds: 0
-  targetScore: 2500
+  targetScore: 1500
   inputDelayInMilliseconds: 0
   amountOfLanes: 3
   fileLocation: EOTT2.mid
