@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60, y: 182.5}
+  m_AnchoredPosition: {x: 0.0000038147, y: 160.5}
   m_SizeDelta: {x: 521.22, y: 61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &166377202
@@ -395,7 +395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.0000019073, y: -0.0000038147}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &242765122
@@ -687,7 +687,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 103.9, y: 103.9, z: 103.9}
+  m_LocalScale: {x: 543.8062, y: 543.8062, z: 543.8062}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 434674432}
@@ -826,7 +826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -367.13, y: 162.99998}
+  m_AnchoredPosition: {x: -371.3, y: 145.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206858215
@@ -1110,7 +1110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -267.38998, y: -137}
+  m_AnchoredPosition: {x: -277.5, y: -125.58}
   m_SizeDelta: {x: 54.96, y: 48.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1402890142
@@ -1641,7 +1641,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -356, y: -137}
+  m_AnchoredPosition: {x: -371.3, y: -125.58}
   m_SizeDelta: {x: 122.26, y: 48.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590301964
@@ -1843,11 +1843,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6504766813312877415, guid: e92c0f5e3dacccd4c900f73c7581d639, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.44
+      value: -7.41
       objectReference: {fileID: 0}
     - target: {fileID: 6504766813312877415, guid: e92c0f5e3dacccd4c900f73c7581d639, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6504766813312877415, guid: e92c0f5e3dacccd4c900f73c7581d639, type: 3}
       propertyPath: m_LocalPosition.z
