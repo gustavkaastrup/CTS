@@ -104,4 +104,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DrumMinigame/Drum_lvl_3.unity
     guid: 94a4a11be8e7d2244a0b722dee49e713
+  - enabled: 1
+    path: Assets/Scenes/Dialogue/DialogueSceneStage/DialogueSceneStage_1.unity
+    guid: 07800dd0a450d49908dee9252b4f75ce
+  - enabled: 1
+    path: Assets/Scenes/Dialogue/DialogueSceneStage/DialogueSceneStage_2.unity
+    guid: 2ba802bf963ff5e4f8ffbedabdafd132
+  - enabled: 1
+    path: Assets/Scenes/Dialogue/DialogueSceneStage/DialogueSceneStage_3.unity
+    guid: f69bf5c94cecd432d99ba55257832fcd
+  - enabled: 1
+    path: Assets/Scenes/Menus/FinaleVideo.unity
+    guid: bf2db133ad91cc34fa5f96b86a94b5cc
   m_configObjects: {}

@@ -7,6 +7,7 @@ public class DialogueManager : MonoBehaviour
 {
     public TMP_Text dialogueText;
     public Button nextButton;
+    public Button finishGameButton;
     [Range(0, 3)] public int gameWorldIndex;
     [Range(0, 2)] public int levelIndex;
     
@@ -83,7 +84,9 @@ public class DialogueManager : MonoBehaviour
         introDialogues[3, 0] = new List<string>() 
         {
             "This is our big chance! They will let us perform on festival if we prove that we are good enaugh.",
-            "Bird is going to warm up his vocal cords before he sings in front of the festival organizors.",
+            "Because the main organizer is an old singer from legendary band Four Ferrets!",
+            "He chanllanged Bird to a singing battle - if Bird wins, they will let us perform",
+            "But first, Bird needs to warm up his vocal cords before he sings in front of the festival organizors.",
             "You can play the reference melody by pressing BIG white button",
             "After the melody is played you have to replay it by pressing Q, W and E on your keyboard (you can try it before pressing the button).",
             "However you have limited time, blue square indicates the timer. Are you ready?"
@@ -91,7 +94,8 @@ public class DialogueManager : MonoBehaviour
         introDialogues[3, 1] = new List<string>() 
         {
             "Its time for Bird to sing in front of the organizors.",
-            "However now its gonna get a bit harder, there are going to be more notes in one melody"
+            "The battle is going to be similar to warm up - first you are going to listen to a melody and than try to repeat it.",
+            "However this time the melodies are going to be a bit longer..."
         };
         introDialogues[3, 2] = new List<string>()
         {
@@ -114,7 +118,7 @@ public class DialogueManager : MonoBehaviour
         };
         outroLastGameworldLevelDialogue[3] = new List<string>()
         {
-            "outro 3",
+            "Bird has won the singing battle!!! Now its finally time to perform on the big stage",
         };
 
     }
@@ -144,12 +148,6 @@ public class DialogueManager : MonoBehaviour
             case Loader.LevelState.Finished:
                 if (levelIndex == 2)
                 {
-                    if (gameWorldIndex == 3)
-                    {
-                        // Finished last level of game
-                        loader.LoadScene(Loader.Scene.GameworldLastScene);
-                        return;
-                    }
                     dialogue = outroLastGameworldLevelDialogue[gameWorldIndex];
                 }
                 else
@@ -161,6 +159,18 @@ public class DialogueManager : MonoBehaviour
             case Loader.LevelState.Failed:
                 dialogue = failLevelDialogue;
                 break;
+        }
+
+        if (loader.GetGameworldIndex() == 4)
+        {
+            if (finishGameButton != null)
+            {
+                finishGameButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("Finish button is null");
+            }
         }
 
         ShowNextDialogue();

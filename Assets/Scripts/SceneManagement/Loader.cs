@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Loader : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class Loader : MonoBehaviour
         Gameworld_Bar,
         Gameworld_Forest,
         Gameworld_Stage,
-        GameworldLastScene,
+        FinaleVideo,
 
         DialogueSceneMushroom_1,
         DialogueSceneMushroom_2,
@@ -191,8 +192,8 @@ public class Loader : MonoBehaviour
             gameworldIndex++;
             if (gameworldIndex == 4)                            // last gameworld complete
             {
-                MakeSceneAviable(Scene.GameworldLastScene);
-                LoadScene(Scene.GameworldLastScene);
+                MakeSceneAviable(Scene.FinaleVideo);
+                LoadLastScene();
                 return;
             }
             else
@@ -221,6 +222,11 @@ public class Loader : MonoBehaviour
         Scene lastScene = lastScenesStack.Pop();
         SceneManager.LoadScene(lastScene.ToString());
     }
+    public void LoadFinalScene()
+    {
+        MakeSceneAviable(Scene.FinaleVideo);
+        LoadScene(Scene.FinaleVideo);
+    } 
     public int GetLevelIndex()
     {
         return levelIndex;
