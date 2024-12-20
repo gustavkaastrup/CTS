@@ -12,7 +12,7 @@ public class CircleBlockerScript : MonoBehaviour
     {
         originalPos = transform.position;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (GameLevelIndex <= Loader.Instance.completeGameWorldIndex)
+        if (GameLevelIndex <= Loader.Instance.GetGameworldIndex())
         {
             UnlockCircle();
         } else

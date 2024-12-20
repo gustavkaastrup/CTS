@@ -66,15 +66,17 @@ public class DialogueManager : MonoBehaviour
             "You play the drums by pressing K, S, and H on your keyboard. Go ahead and try it!",
             "You have to hit correct drum in time with the music. The better you play the more points you get!",
             "The Notes will light up when they're supposed to be played, and beware sometimes you have to play two notes at the same time!",
-            "Good Luck!"
+            "Good Luck! Try to score above 1000 points to convince the bird to join us!"
 
         };
         introDialogues[2, 1] = new List<string>() { 
             "That rocked! Unfortunately the bird isn't convinced yet, maybe we should try something faster",
-            "I got just the thing..." };
+            "I got just the thing...",
+            "Try reaching over 2000 points!" };
         introDialogues[2, 2] = new List<string>() { 
             "That didn't work either... Maybe it was too slow?",
             "I know! Try playing something even faster!",
+            "Try reaching over 3000 points this time!",
             "1,2,3,4, GO!" 
             };
 

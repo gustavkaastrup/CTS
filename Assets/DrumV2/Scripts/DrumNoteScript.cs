@@ -5,27 +5,35 @@ public class DrumNoteScript : MonoBehaviour
     public string noteName;
     public int barIndex;
     public int beatIndex;
+    public double barStartTime;
     public double hitWindowSeconds = 0.2f; // The time window in seconds to hit the note
-    public Color activeColor = Color.white;
-    public Color inactiveColor = Color.gray;
+    public Color activeColor = Color.green;
+    public Color inactiveColor = Color.yellow;
+    public Color preColor = Color.red;
 
     public double targetTime;
     private bool isHit = false;
     private bool isActive = false;
     private SpriteRenderer spriteRenderer;
 
-    public void Initialize(string noteName, int barIndex, int beatIndex, double targetTime)
+    public void Initialize(string noteName, int barIndex, int beatIndex, double targetTime, double barStartTime)
     {
         this.noteName = noteName;
         this.barIndex = barIndex;
         this.beatIndex = beatIndex;
+        this.barStartTime = barStartTime;
         this.targetTime = targetTime;
         spriteRenderer = GetComponent<SpriteRenderer>();
         SetInactive();
+        spriteRenderer.color = preColor;
+        transform.position = new Vector3(transform.position.x, transform.position.y, 5);
     }
 
     void Update()
     {
+        if(AudioMidiController.instance.currentTime > barStartTime){
+            SetInactive();
+        }
         if (!isHit && Mathf.Abs(AudioMidiController.instance.currentTime - (float)targetTime) <= hitWindowSeconds)
         {
             if (!isActive)
