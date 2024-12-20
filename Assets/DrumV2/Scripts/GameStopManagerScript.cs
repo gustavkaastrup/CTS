@@ -23,6 +23,8 @@ public class GameStopManagerScript : MonoBehaviour
             {
                 SFXPlayerScript.instance.PlayNextLevel();
                 Loader.Instance.LevelSuccess();
+            } else {
+                Loader.Instance.LevelFailed();
             }
         }
     }
