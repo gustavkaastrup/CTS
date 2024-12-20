@@ -8,10 +8,6 @@ public class Loader : MonoBehaviour
     [Header("FOR DEBUG: set complete level")]
     [Range(0, 3)] public int completeGameWorldIndex;
     [Range(0, 2)] public int completeLevelIndex;
-    [HideInInspector]
-    public bool lastLevelSuccess;
-    [HideInInspector]
-    public bool levelPlayed = false;
 
     public static Loader Instance;
     public enum Scene
@@ -188,8 +184,6 @@ public class Loader : MonoBehaviour
     public void LevelSuccess()
     {
         levelsState[gameworldIndex][levelIndex] = LevelState.Finished;
-        lastLevelSuccess = true;
-        levelPlayed = false;
         levelIndex++;
         if (levelIndex == 3)                                    // last level of gameworld complete
         {
@@ -214,8 +208,6 @@ public class Loader : MonoBehaviour
     public void LevelFailed()
     {
         levelsState[gameworldIndex][levelIndex] = LevelState.Failed;
-        lastLevelSuccess = false;
-        levelPlayed = true;
         LoadLastScene();
     }
 
