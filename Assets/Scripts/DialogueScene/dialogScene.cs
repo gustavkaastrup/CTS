@@ -17,21 +17,22 @@ public class DialogueManager : MonoBehaviour
     private void InitDialogues()
     {
         introDialogues[0, 0] = new List<string>(){
-            "Hi, you found the right spot to convince my brother to join the band!",
-            "You gotta nail this minigame by singing the correct melody. If you can pull that off, we’ll keep searching for band members so we can perform at the big festival.",
-            "You can play the reference melody by pressing BIG white button", 
-            "After the melody is played you have to replay it by pressing Q, W and E on your keyboard (you can try it before pressing the button).",
-            "However you have limited time, blue square indicates the timer. Are you ready?"
+            "I think Im going start the search for new bandmates in my own house.",
+            "I can play bass guitar but you need someone who plays regular guitar - and my brother has been playin for years",
+            "However he doesnt believe that our band can succeed :( I have to convince him by my excelent bass playing!",
+            "But first I need to learn how do the guitar effects work, I remember my brother talking about them - lets try it!"
          };
 
         introDialogues[0, 1] = new List<string>()
         {
-            "Now its gonna get a bit harder, there are going to be more notes in one melody"
+            "Ok, so I leard some basics, now its time practice a bit more, so that I dont embarace myself infront of my brother."
         };
 
         introDialogues[0, 2] = new List<string>()
         {
-            "This time you are going to have less time - good singer has to be able to sing FAST!"
+            "I just talked to my brother and so now its time to show him what Ive learned.",
+            "However our parents are currently cleaning the kitchen, so its going to be a bit noisy, I will have to listen carefully.",
+            "Hopefully he likes it and joins my band - than we can keep searching for other band members and finally perform at the big festival!",
         };
 
           introDialogues[1, 0] = new List<string>(){
@@ -60,9 +61,24 @@ public class DialogueManager : MonoBehaviour
         introDialogues[2, 1] = new List<string>() { "2 1 intro" };
         introDialogues[2, 2] = new List<string>() { "2 2 intro" };
 
-        introDialogues[3, 0] = new List<string>() { "3 0 intro" };
-        introDialogues[3, 1] = new List<string>() { "3 1 intro" };
-        introDialogues[3, 2] = new List<string>() { "3 2 intro" };
+        introDialogues[3, 0] = new List<string>() 
+        {
+            "This is our big chance! They will let us perform on festival if we prove that we are good enaugh.",
+            "Bird is going to warm up his vocal cords before he sings in front of the festival organizors.",
+            "You can play the reference melody by pressing BIG white button",
+            "After the melody is played you have to replay it by pressing Q, W and E on your keyboard (you can try it before pressing the button).",
+            "However you have limited time, blue square indicates the timer. Are you ready?"
+        };
+        introDialogues[3, 1] = new List<string>() 
+        {
+            "Its time for Bird to sing in front of the organizors.",
+            "However now its gonna get a bit harder, there are going to be more notes in one melody"
+        };
+        introDialogues[3, 2] = new List<string>()
+        {
+            "They liked the performance, but they want to see if Bird can sing a bit faster - good singer has to be able to sing FAST!",
+            "So this time you are going to have less time to play the melody"
+        };
     }
 
     private List<string> failLevelDialogue = new List<string>()

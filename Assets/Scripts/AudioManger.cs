@@ -14,7 +14,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip BassLowA;
     public AudioClip BassMidE;
     public AudioClip BassHighE;
-    public AudioClip BarAmbience;
+    public AudioClip KitchenNoise;
+    public AudioClip WashingNoise;
+    public AudioClip KitchenWashingNoise;
 
     [Header("Vocals minigame")]
     public AudioClip VocalsC;

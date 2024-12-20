@@ -10,6 +10,8 @@ public class BarAmbience : MonoBehaviour
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         audioManager.SetMusicVolume(musicVolume);
-        audioManager.PlayMusic(audioManager.BarAmbience);
+        audioManager.PlayMusic(audioManager.KitchenWashingNoise);
+        //audioManager.PlayMusic(audioManager.KitchenNoise);
+        //audioManager.PlayMusic(audioManager.WashingNoise);
     }
 }
