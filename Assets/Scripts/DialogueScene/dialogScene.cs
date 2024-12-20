@@ -117,7 +117,7 @@ public class DialogueManager : MonoBehaviour
         };
         outroLastGameworldLevelDialogue[2] = new List<string>()
         {
-            "outro 2",
+            "Hell yeah! You did it! You convinced the bird to join our band! Next stop - the big festival!",
         };
         outroLastGameworldLevelDialogue[3] = new List<string>()
         {

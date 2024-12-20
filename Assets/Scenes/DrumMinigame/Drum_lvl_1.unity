@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c3ed83a31c559418a8239b2fd095f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiFilePath: MidiFiles/DrumMiniGame_lvl_1_100BPM_midi.mid
+  midiFilePath: /MidiFiles/DrumMiniGame_lvl_1_100BPM_midi.mid
   audioSource: {fileID: 1029288197}
   currentTime: 0
   sampleRate: 0
