@@ -23,6 +23,7 @@ public class NewBehaviourScript : MonoBehaviour
             }
         } else {
             loader.LoadScene(scene);
+            SFXPlayerScript.instance.PlayButtonPress();
         }
     }
 }

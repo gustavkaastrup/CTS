@@ -758,9 +758,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: ShowNextDialogue
+      - m_Target: {fileID: 6543398782154976651, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
+        m_TargetAssemblyTypeName: SFXPlayerScript, Assembly-CSharp
+        m_MethodName: PlayButtonPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
