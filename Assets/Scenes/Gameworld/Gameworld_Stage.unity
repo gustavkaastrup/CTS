@@ -353,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 1
   levelIndex: 2
+  gameWorldIndex: 3
 --- !u!1 &686304054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 1
   levelIndex: 1
+  gameWorldIndex: 3
 --- !u!1 &1634383384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,6 +1346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 0
   levelIndex: 0
+  gameWorldIndex: 3
 --- !u!1 &1886483255
 GameObject:
   m_ObjectHideFlags: 0
