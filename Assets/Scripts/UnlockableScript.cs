@@ -7,6 +7,7 @@ public class UnlockableScript : MonoBehaviour
     private string[] lock_img;
     public bool isLocked = true;
     public int levelIndex;
+    public int gameWorldIndex;
     private Vector3 originalScale;
     private Color originalColor;
     void Start(){
@@ -18,7 +19,7 @@ public class UnlockableScript : MonoBehaviour
         }else{ 
             Unlock();
         }
-        if(Loader.Instance.GetLevelIndex() >= levelIndex){
+        if(Loader.Instance.GetLevelIndex() >= levelIndex && Loader.Instance.GetGameworldIndex() >= gameWorldIndex){
             Unlock();
         } else {
             Lock();

@@ -72,7 +72,7 @@ public class DialogueManager : MonoBehaviour
 
         };
         introDialogues[2, 1] = new List<string>() { 
-            "That rocked! Unfortunately the bird isn't convinced yet, maybe we shuould try something faster",
+            "That rocked! Unfortunately the bird isn't convinced yet, maybe we should try something faster",
             "I got just the thing..." };
         introDialogues[2, 2] = new List<string>() { 
             "That didn't work either... Maybe it was too slow?",

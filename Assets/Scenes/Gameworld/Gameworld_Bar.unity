@@ -692,6 +692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 0
   levelIndex: 0
+  gameWorldIndex: 2
 --- !u!1001 &1084668876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1167,6 +1168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 1
   levelIndex: 1
+  gameWorldIndex: 2
 --- !u!1 &1634383384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1840,6 +1842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLocked: 1
   levelIndex: 2
+  gameWorldIndex: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
