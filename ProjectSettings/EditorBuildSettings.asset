@@ -113,4 +113,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dialogue/DialogueSceneStage/DialogueSceneStage_3.unity
     guid: f69bf5c94cecd432d99ba55257832fcd
+  - enabled: 1
+    path: Assets/Scenes/Menus/FinaleVideo.unity
+    guid: bf2db133ad91cc34fa5f96b86a94b5cc
   m_configObjects: {}

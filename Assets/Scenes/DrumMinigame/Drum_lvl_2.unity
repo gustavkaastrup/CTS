@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c3ed83a31c559418a8239b2fd095f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  midiFilePath: Assets/DrumV2/MidiFiles/DrumMinigame_lvl2_120BPMmidi.mid
+  midiFilePath: MidiFiles/DrumMinigame_lvl2_120BPMmidi.mid
   audioSource: {fileID: 1029288197}
   currentTime: 0
   sampleRate: 0
@@ -1174,6 +1174,8 @@ MonoBehaviour:
   KickRadius: 3
   SnareRadius: 3.5
   HihatRadius: 4
+  barIndex: 0
+  currentpBar: 0
 --- !u!1 &1509387186
 GameObject:
   m_ObjectHideFlags: 0
