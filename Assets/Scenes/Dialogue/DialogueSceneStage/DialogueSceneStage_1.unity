@@ -122,74 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &97037563 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6543398782154976651, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-  m_PrefabInstance: {fileID: 384546324}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8df2a3541e1449942ae09878a5d63d6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &384546324
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6097932457936603526, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_Name
-      value: SFXPlayerPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8599103244831796199, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 79f9f2af36611fe4ba06f5e2ee719131, type: 3}
 --- !u!1 &521287585
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +840,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5904929418036128284, guid: deb574f6ee5ef04408480b60490e2ddb, type: 3}
         m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
         m_MethodName: ShowNextDialogue
         m_Mode: 1
@@ -920,7 +852,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 97037563}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SFXPlayerScript, Assembly-CSharp
         m_MethodName: PlayButtonPress
         m_Mode: 1
@@ -1532,5 +1464,4 @@ SceneRoots:
   - {fileID: 924171360}
   - {fileID: 690803903}
   - {fileID: 868060732}
-  - {fileID: 384546324}
   - {fileID: 930656916}
